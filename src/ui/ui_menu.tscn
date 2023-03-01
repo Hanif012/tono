@@ -1,4 +1,43 @@
-[gd_scene format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
+
+[ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
+
+[sub_resource type="Animation" id="Animation_sqs01"]
+resource_name = "fade_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_51tox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ds2dk"]
+_data = {
+"RESET": SubResource("Animation_51tox"),
+"fade_in": SubResource("Animation_sqs01")
+}
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -7,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w3rdv")
 
 [node name="menu" type="TabContainer" parent="."]
 layout_mode = 0
@@ -16,7 +56,6 @@ offset_right = 634.0
 offset_bottom = 474.0
 
 [node name="Daftar Utama" type="TabBar" parent="menu"]
-visible = false
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="menu/Daftar Utama"]
@@ -35,6 +74,7 @@ layout_mode = 2
 text = "Keluar"
 
 [node name="Pengaturan" type="TabBar" parent="menu"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="menu/Pengaturan"]
@@ -94,3 +134,16 @@ text = "Konfirmasi"
 [node name="Kredit" type="TabBar" parent="menu"]
 visible = false
 layout_mode = 2
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ds2dk")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

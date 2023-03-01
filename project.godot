@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Tono"
 
+[internationalization]
+
+locale/fallback="id_ID"
+
 [rendering]
 
 renderer/rendering_method="mobile"
