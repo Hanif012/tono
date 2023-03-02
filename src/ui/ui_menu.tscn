@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
+[ext_resource type="PackedScene" uid="uid://bueb6teitp6k7" path="res://audio.tscn" id="2_3i1wc"]
 
 [sub_resource type="Animation" id="Animation_51tox"]
 length = 0.001
@@ -60,24 +61,7 @@ offset_top = 23.0
 offset_right = 442.0
 offset_bottom = 49.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu/Pengaturan/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="Music" type="Label" parent="menu/Pengaturan/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Music"
-
-[node name="music_slider" type="HSlider" parent="menu/Pengaturan/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Sfx" type="Label" parent="menu/Pengaturan/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Efek Suara"
-
-[node name="sfx_slider" type="HSlider" parent="menu/Pengaturan/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="audio" parent="menu/Pengaturan/HBoxContainer" instance=ExtResource("2_3i1wc")]
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="menu/Pengaturan/HBoxContainer"]

@@ -15,3 +15,4 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.961784, 0.273808, 0, -0.273808, 0.961784, 0, 1.61101, -2.79324)
 current = true
+fov = 51.1032

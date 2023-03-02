@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bueb6teitp6k7"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+
+[node name="Music" type="Label" parent="."]
+layout_mode = 2
+text = "Music"
+
+[node name="music_slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="."]
+layout_mode = 2
+text = "Efek Suara"
+
+[node name="sfx_slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="confirm" type="Button" parent="."]
+layout_mode = 2
+text = "Konfirmasi"
