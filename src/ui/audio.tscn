@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bueb6teitp6k7"]
+[gd_scene load_steps=2 format=3 uid="uid://ceoa3gp32x1b8"]
 
-[ext_resource type="Script" path="res://src/ui/audio_slider.gd" id="1_cdfhr"]
+[ext_resource type="Script" path="res://src/ui/audio.gd" id="1_atx2h"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[node name="audio" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
+script = ExtResource("1_atx2h")
 
 [node name="music" type="HBoxContainer" parent="."]
 layout_mode = 2
-script = ExtResource("1_cdfhr")
 
 [node name="Music" type="Label" parent="music"]
 custom_minimum_size = Vector2(100, 0)
@@ -42,5 +42,4 @@ ticks_on_borders = true
 layout_mode = 2
 text = "Konfirmasi"
 
-[connection signal="gui_input" from="music/music_slider" to="music" method="_on_music_slider_gui_input"]
-[connection signal="value_changed" from="music/music_slider" to="music" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="music/music_slider" to="." method="_on_music_volume_value_changed"]
