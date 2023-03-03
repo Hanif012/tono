@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bueb6teitp6k7"]
+
+[ext_resource type="Script" path="res://src/ui/audio_slider.gd" id="1_cdfhr"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+
+[node name="music" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_cdfhr")
+
+[node name="Music" type="Label" parent="music"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Musik"
+
+[node name="music_slider" type="HSlider" parent="music"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+ticks_on_borders = true
+
+[node name="sfx" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="sfx"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Efek Suara"
+
+[node name="sfx_slider" type="HSlider" parent="sfx"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+ticks_on_borders = true
+
+[node name="confirm" type="Button" parent="."]
+layout_mode = 2
+text = "Konfirmasi"
+
+[connection signal="gui_input" from="music/music_slider" to="music" method="_on_music_slider_gui_input"]
+[connection signal="value_changed" from="music/music_slider" to="music" method="_on_slider_value_changed"]
