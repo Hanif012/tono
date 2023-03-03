@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceoa3gp32x1b8"]
+[gd_scene load_steps=3 format=3 uid="uid://ceoa3gp32x1b8"]
 
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="1_atx2h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1nyh"]
 
 [node name="audio" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -13,6 +15,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Musik"
+label_settings = SubResource("LabelSettings_h1nyh")
 
 [node name="music_slider" type="HSlider" parent="music"]
 custom_minimum_size = Vector2(100, 0)
@@ -43,3 +46,5 @@ layout_mode = 2
 text = "Konfirmasi"
 
 [connection signal="value_changed" from="music/music_slider" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="sfx/sfx_slider" to="." method="_on_sound_volume_value_changed"]
+[connection signal="pressed" from="confirm" to="." method="_on_done_pressed"]

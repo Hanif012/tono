@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_sound_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index("Effects"),
+			AudioServer.get_bus_index("Sfx"),
 			linear_to_db(value)
 	)
 
@@ -33,5 +33,5 @@ func _on_done_pressed() -> void:
 	Settings.file.set_value("audio", "sound_volume", sound_volume_slider.value)
 	Settings.file.set_value("audio", "music_volume", music_volume_slider.value)
 	Settings.save()
-	emit_signal("menu_changed", $"/root/Menu/Control/Options")
+
 
