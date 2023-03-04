@@ -7,6 +7,7 @@ size = Vector2(1, 1)
 size = Vector3(1, 0.001, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jckyn"]
+radial_segments = 8
 
 [node name="mesh_library" type="Node3D"]
 
