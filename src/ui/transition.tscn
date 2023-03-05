@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dae0g1o6d1wqy"]
+
+[sub_resource type="Animation" id="Animation_51tox"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_sqs01"]
+resource_name = "fade_in"
+length = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ds2dk"]
+_data = {
+"RESET": SubResource("Animation_51tox"),
+"fade_in": SubResource("Animation_sqs01")
+}
+
+[node name="transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color_rect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 480.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="color_rect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -481.0
+offset_bottom = -481.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ds2dk")
+}

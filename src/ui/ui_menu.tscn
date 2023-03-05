@@ -1,20 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=4 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="PackedScene" uid="uid://ceoa3gp32x1b8" path="res://src/ui/audio.tscn" id="2_7ky0k"]
-
-[sub_resource type="Animation" id="Animation_51tox"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_sqs01"]
-resource_name = "fade_in"
-length = 0.2
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ds2dk"]
-_data = {
-"RESET": SubResource("Animation_51tox"),
-"fade_in": SubResource("Animation_sqs01")
-}
+[ext_resource type="PackedScene" uid="uid://dae0g1o6d1wqy" path="res://src/ui/transition.tscn" id="2_7opbl"]
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -25,46 +13,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w3rdv")
 
-[node name="transition" type="Control" parent="."]
+[node name="transition" parent="." instance=ExtResource("2_7opbl")]
+layout_mode = 1
+
+[node name="audio_settings" parent="." instance=ExtResource("2_7ky0k")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="color_rect" type="ColorRect" parent="transition"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 480.0
-offset_bottom = 480.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="color_rect2" type="ColorRect" parent="transition"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -481.0
-offset_bottom = -481.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="anim" type="AnimationPlayer" parent="transition"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_ds2dk")
-}
-
-[node name="audio" parent="." instance=ExtResource("2_7ky0k")]
-layout_mode = 0
-offset_right = 204.0
-offset_bottom = 91.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(320, 240)
+[editable path="transition"]
+[editable path="audio_settings"]
