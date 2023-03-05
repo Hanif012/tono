@@ -1,29 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cghlq1ojn6xgv"]
+[gd_scene load_steps=3 format=3 uid="uid://cghlq1ojn6xgv"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_dfilx"]
-size = Vector2(1, 1)
+[ext_resource type="PackedScene" uid="uid://811okr4m7miv" path="res://assets/blender/floor/floor.blend" id="1_ohhxv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jhh2q"]
-size = Vector3(1, 0.001, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_jckyn"]
-radial_segments = 8
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u2tfv"]
 
 [node name="mesh_library" type="Node3D"]
 
-[node name="floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_dfilx")
+[node name="floor" parent="." instance=ExtResource("1_ohhxv")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="floor/Plane" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
-shape = SubResource("BoxShape3D_jhh2q")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/Plane/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_u2tfv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.387)
-mesh = SubResource("CylinderMesh_jckyn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="MeshInstance3D/StaticBody3D"]
-polygon = PackedVector2Array(0.701844, -0.996548, 0.747764, 1.11578, -0.484426, 1.12343, -0.51504, -1.0042)
+[editable path="floor"]
