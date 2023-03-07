@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="PackedScene" uid="uid://ceoa3gp32x1b8" path="res://src/ui/audio.tscn" id="2_7ky0k"]
 [ext_resource type="PackedScene" uid="uid://dae0g1o6d1wqy" path="res://src/ui/transition.tscn" id="2_7opbl"]
+[ext_resource type="PackedScene" uid="uid://dtawg5so362rp" path="res://src/ui/menu.tscn" id="4_fvfup"]
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -34,13 +35,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="menu" parent="." instance=ExtResource("4_fvfup")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [editable path="transition"]
 [editable path="audio_settings"]
+[editable path="menu"]
