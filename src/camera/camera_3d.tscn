@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dhfgm5o8x53rg"]
-
-[node name="Camera" type="Camera3D"]
-current = true
-near = 0.001

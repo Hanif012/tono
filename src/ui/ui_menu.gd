@@ -1,12 +1,21 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var menu = $menu
+@onready var audio = $audio_settings
+
 func _ready():
-	pass
- # Replace with function body.
+	audio.visible = false
+	menu.visible = true
 
+func _on_play_button_pressed():
+	menu.visible = false
+	audio.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_confirm_pressed():
+	menu.visible = true
+	audio.visible = false
+
+func _on_settings_button_pressed():
+	menu.visible = false
+	audio.visible = true

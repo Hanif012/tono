@@ -17,14 +17,6 @@ script = ExtResource("1_w3rdv")
 [node name="transition" parent="." instance=ExtResource("2_7opbl")]
 layout_mode = 1
 
-[node name="color_rect" parent="transition" index="0"]
-offset_top = 720.0
-offset_bottom = 720.0
-
-[node name="color_rect2" parent="transition" index="1"]
-offset_top = -733.0
-offset_bottom = -733.0
-
 [node name="audio_settings" parent="." instance=ExtResource("2_7ky0k")]
 layout_mode = 1
 anchors_preset = 15
@@ -37,6 +29,11 @@ grow_vertical = 2
 
 [node name="menu" parent="." instance=ExtResource("4_fvfup")]
 layout_mode = 1
+
+[connection signal="pressed" from="audio_settings/audio/confirm" to="." method="_on_confirm_pressed"]
+[connection signal="ready" from="audio_settings/audio/confirm" to="." method="_on_confirm_ready"]
+[connection signal="pressed" from="menu/play/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="menu/play/settings_button" to="." method="_on_settings_button_pressed"]
 
 [editable path="transition"]
 [editable path="audio_settings"]
