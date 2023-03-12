@@ -4,10 +4,12 @@ extends Control
 
 func _ready():
 	tab.current_tab = 0
+	Global._music_menu()
 
 #MENU
 func _on_play_button_pressed():
-	pass 
+	tab.current_tab = 3
+
 func _on_play_button_mouse_entered():
 	$tab/TabBar/menu/play/play_button.grab_focus()
 
@@ -26,7 +28,6 @@ func _on_quit_button_mouse_entered():
 func _on_back_pressed():
 	tab.current_tab = 0
 	print("back")
-	
 
 func _on_quit_pressed():
 	get_tree().quit()

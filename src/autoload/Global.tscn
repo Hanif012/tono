@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2b3105peo7tj"]
+
+[ext_resource type="Script" path="res://src/autoload/Global.gd" id="1_xsu3a"]
+[ext_resource type="AudioStream" uid="uid://h5qx7hrys6v8" path="res://assets/music/Kipas.ogg" id="2_b376e"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_xsu3a")
+
+[node name="music" type="Node" parent="."]
+
+[node name="menu" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("2_b376e")
+volume_db = 10.0
+bus = &"Music"
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="click" type="AudioStreamPlayer" parent="sfx"]
+bus = &"Sfx"

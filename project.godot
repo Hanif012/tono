@@ -12,13 +12,15 @@ config_version=5
 
 config/name="Tono"
 run/main_scene="res://src/ui/ui_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Tono"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Settings="*res://src/autoload/settings.gd"
-Global="*res://src/autoload/Global.gd"
+Global="*res://src/autoload/Global.tscn"
 Transition="*res://src/autoload/transition.tscn"
 
 [display]

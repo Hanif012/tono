@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
+[ext_resource type="Script" path="res://src/ui/level.gd" id="3_8u60d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1nyh"]
 
@@ -143,6 +144,45 @@ text = "Yakin"
 layout_mode = 2
 text = "Kembali"
 
+[node name="TabBar4" type="TabBar" parent="tab"]
+visible = false
+layout_mode = 2
+
+[node name="level" type="Control" parent="tab/TabBar4"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_8u60d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar4/level"]
+layout_mode = 1
+offset_right = 307.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="tab/TabBar4/level/VBoxContainer"]
+layout_mode = 2
+text = "Tingkatan"
+
+[node name="level_1" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
+layout_mode = 2
+text = "Tingkat 1"
+
+[node name="level_2" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
+layout_mode = 2
+text = "Tingkat 2"
+
+[node name="level_3" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
+layout_mode = 2
+text = "Tingkat 3"
+
+[node name="MarginContainer" type="MarginContainer" parent="tab/TabBar4/level/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="back" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
+layout_mode = 2
+text = "Kembali"
+
 [connection signal="mouse_entered" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="tab/TabBar/menu/play/settings_button" to="." method="_on_settings_button_mouse_entered"]
@@ -158,3 +198,4 @@ text = "Kembali"
 [connection signal="pressed" from="tab/TabBar2/audio_settings/audio/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/back" to="." method="_on_back_pressed"]
