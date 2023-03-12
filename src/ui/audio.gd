@@ -29,3 +29,10 @@ func _on_done_pressed() -> void:
 	Settings.file.set_value("audio", "sound_volume", sound_volume_slider.value)
 	Settings.file.set_value("audio", "music_volume", music_volume_slider.value)
 	Settings.save()
+
+
+func _on_back_mouse_entered():
+	$back.grab_focus()
+
+func _on_confirm_mouse_entered():
+	$confirm.grab_focus()

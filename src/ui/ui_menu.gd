@@ -1,21 +1,35 @@
 extends Control
 
-
-@onready var menu = $menu
-@onready var audio = $audio_settings
+@onready var tab : TabContainer = $tab
 
 func _ready():
-	audio.visible = false
-	menu.visible = true
+	tab.current_tab = 0
 
+#MENU
 func _on_play_button_pressed():
-	menu.visible = false
-	audio.visible = false
-
-func _on_confirm_pressed():
-	menu.visible = true
-	audio.visible = false
+	pass 
+func _on_play_button_mouse_entered():
+	$tab/TabBar/menu/play/play_button.grab_focus()
 
 func _on_settings_button_pressed():
-	menu.visible = false
-	audio.visible = true
+	tab.current_tab = 1
+	print("setting")
+func _on_settings_button_mouse_entered():
+	$tab/TabBar/menu/play/settings_button.grab_focus()
+
+func _on_quit_menu_button_pressed():
+	tab.current_tab = 2
+	print("quit")
+func _on_quit_button_mouse_entered():
+	$tab/TabBar/menu/play/quit_button.grab_focus()
+
+func _on_back_pressed():
+	tab.current_tab = 0
+	print("back")
+	
+
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+

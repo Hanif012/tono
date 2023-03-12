@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Settings="*res://src/autoload/settings.gd"
+Global="*res://src/autoload/Global.gd"
+Transition="*res://src/autoload/transition.tscn"
 
 [display]
 
