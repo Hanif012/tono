@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://glf4smgp1d5o"]
+[gd_scene load_steps=6 format=3 uid="uid://glf4smgp1d5o"]
 
 [ext_resource type="Script" path="res://src/level/player.gd" id="1_54mi5"]
 [ext_resource type="Texture2D" uid="uid://dwnahnxcyvpjh" path="res://icon.svg" id="2_7xkut"]
+[ext_resource type="Texture2D" uid="uid://g48ahbrir5jm" path="res://assets/bruh.svg" id="3_rdlv0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erbwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wke14"]
+radius = 24.0208
 
 [node name="level_0" type="Node"]
 
@@ -28,10 +30,13 @@ position_smoothing_enabled = true
 
 [node name="item" type="Node2D" parent="."]
 
-[node name="health" type="Area2D" parent="item"]
+[node name="item" type="Area2D" parent="item"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="item/health"]
+[node name="Sprite2D" type="Sprite2D" parent="item/item"]
+scale = Vector2(0.164063, 0.164063)
+texture = ExtResource("3_rdlv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item/item"]
 shape = SubResource("CircleShape2D_wke14")
-debug_color = Color(0.235294, 0.0862745, 0.564706, 0.419608)
 
 [node name="world" type="Node2D" parent="."]

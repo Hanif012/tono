@@ -24,7 +24,6 @@ offset_bottom = 489.0
 tabs_visible = false
 
 [node name="TabBar" type="TabBar" parent="tab"]
-visible = false
 layout_mode = 2
 
 [node name="menu" type="Control" parent="tab/TabBar"]
@@ -151,6 +150,7 @@ layout_mode = 2
 text = "Kembali"
 
 [node name="TabBar4" type="TabBar" parent="tab"]
+visible = false
 layout_mode = 2
 
 [node name="level" type="Control" parent="tab/TabBar4"]
