@@ -5,7 +5,7 @@ extends Control
 func _ready():
 	tab.current_tab = 0
 	Global._music_menu()
-
+	$Credits.visible = false
 #MENU
 func _on_play_button_pressed():
 	tab.current_tab = 3
@@ -16,6 +16,7 @@ func _on_play_button_mouse_entered():
 func _on_settings_button_pressed():
 	tab.current_tab = 1
 	print("setting")
+
 func _on_settings_button_mouse_entered():
 	$tab/TabBar/menu/play/settings_button.grab_focus()
 
@@ -34,7 +35,10 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_credits_button_pressed():
-	pass # Replace with function body.
+	$Credits.visible = true
 
 func _on_credits_button_mouse_entered():
 	$tab/TabBar/menu/play/credits_button.grab_focus()
+
+func _on_close_button_pressed():
+	$Credits.visible = false

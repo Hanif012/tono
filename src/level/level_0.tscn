@@ -7,7 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_erbwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wke14"]
-radius = 24.0208
 
 [node name="level_0" type="Node"]
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
 
+[ext_resource type="Theme" uid="uid://bolx110np3d1n" path="res://assets/theme/theme.tres" id="1_bjcr1"]
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
 [ext_resource type="Script" path="res://src/ui/level.gd" id="3_8u60d"]
@@ -13,18 +14,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bjcr1")
 script = ExtResource("1_w3rdv")
 
 [node name="tab" type="TabContainer" parent="."]
 layout_mode = 0
 offset_left = 500.0
-offset_top = 240.0
+offset_top = 365.0
 offset_right = 809.0
-offset_bottom = 489.0
+offset_bottom = 614.0
 tabs_visible = false
 
 [node name="TabBar" type="TabBar" parent="tab"]
-visible = false
 layout_mode = 2
 
 [node name="menu" type="Control" parent="tab/TabBar"]
@@ -55,7 +56,7 @@ text = "Pengaturan"
 
 [node name="credits_button" type="Button" parent="tab/TabBar/menu/play"]
 layout_mode = 2
-text = "Pengaturan"
+text = "Tentang"
 
 [node name="quit_button" type="Button" parent="tab/TabBar/menu/play"]
 layout_mode = 2
@@ -229,6 +230,28 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 
+[node name="close_button" type="Button" parent="Credits"]
+layout_mode = 0
+offset_right = 54.0
+offset_bottom = 31.0
+text = "Tutup"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 135.0
+offset_right = 809.0
+offset_bottom = 367.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 144.0
+offset_right = 791.0
+offset_bottom = 347.0
+text = ">Tono"
+vertical_alignment = 2
+
 [connection signal="mouse_entered" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="tab/TabBar/menu/play/settings_button" to="." method="_on_settings_button_mouse_entered"]
@@ -247,3 +270,4 @@ THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Credits/close_button" to="." method="_on_close_button_pressed"]

@@ -8,3 +8,4 @@ func _process(delta):
 	direction = direction.normalized()
 	velocity = direction * player_speed * delta
 	move_and_slide()
+
