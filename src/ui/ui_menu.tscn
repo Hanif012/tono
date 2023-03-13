@@ -238,7 +238,7 @@ text = "Tutup"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 499.0
+offset_left = 500.0
 offset_top = 135.0
 offset_right = 809.0
 offset_bottom = 367.0
