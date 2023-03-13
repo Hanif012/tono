@@ -22,6 +22,7 @@ func _on_settings_button_mouse_entered():
 func _on_quit_menu_button_pressed():
 	tab.current_tab = 2
 	print("quit")
+
 func _on_quit_button_mouse_entered():
 	$tab/TabBar/menu/play/quit_button.grab_focus()
 
@@ -31,3 +32,9 @@ func _on_back_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _on_credits_button_pressed():
+	pass # Replace with function body.
+
+func _on_credits_button_mouse_entered():
+	$tab/TabBar/menu/play/credits_button.grab_focus()
