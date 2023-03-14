@@ -30,7 +30,6 @@ func _on_done_pressed() -> void:
 	Settings.file.set_value("audio", "music_volume", music_volume_slider.value)
 	Settings.save()
 
-
 func _on_back_mouse_entered():
 	$back.grab_focus()
 

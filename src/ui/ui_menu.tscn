@@ -4,8 +4,7 @@
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
 [ext_resource type="Script" path="res://src/ui/level.gd" id="3_8u60d"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_h1nyh"]
+[ext_resource type="StyleBox" uid="uid://cgxnaaip8426h" path="res://assets/theme/theme_old/key_cap_disabled.tres" id="4_hr6ee"]
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -26,6 +25,7 @@ offset_bottom = 614.0
 tabs_visible = false
 
 [node name="TabBar" type="TabBar" parent="tab"]
+visible = false
 layout_mode = 2
 
 [node name="menu" type="Control" parent="tab/TabBar"]
@@ -38,10 +38,10 @@ grow_vertical = 2
 
 [node name="play" type="VBoxContainer" parent="tab/TabBar/menu"]
 layout_mode = 0
-offset_left = 99.0
-offset_top = 56.0
-offset_right = 198.0
-offset_bottom = 157.0
+offset_left = 11.0
+offset_top = 18.0
+offset_right = 125.0
+offset_bottom = 178.0
 pivot_offset = Vector2(50, 0)
 
 [node name="play_button" type="Button" parent="tab/TabBar/menu/play"]
@@ -63,7 +63,6 @@ layout_mode = 2
 text = "Keluar"
 
 [node name="TabBar2" type="TabBar" parent="tab"]
-visible = false
 layout_mode = 2
 
 [node name="audio_settings" type="Control" parent="tab/TabBar2"]
@@ -77,9 +76,9 @@ grow_vertical = 2
 [node name="audio" type="VBoxContainer" parent="tab/TabBar2/audio_settings"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
-offset_left = 51.0
-offset_top = 60.0
-offset_right = 255.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 274.0
 offset_bottom = 186.0
 script = ExtResource("2_o1s8e")
 
@@ -87,10 +86,10 @@ script = ExtResource("2_o1s8e")
 layout_mode = 2
 
 [node name="Music" type="Label" parent="tab/TabBar2/audio_settings/audio/music"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("4_hr6ee")
 text = "Musik"
-label_settings = SubResource("LabelSettings_h1nyh")
 
 [node name="music_slider" type="HSlider" parent="tab/TabBar2/audio_settings/audio/music"]
 custom_minimum_size = Vector2(100, 0)
@@ -105,8 +104,9 @@ ticks_on_borders = true
 layout_mode = 2
 
 [node name="Sfx" type="Label" parent="tab/TabBar2/audio_settings/audio/sfx"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("4_hr6ee")
 text = "Efek Suara"
 
 [node name="sfx_slider" type="HSlider" parent="tab/TabBar2/audio_settings/audio/sfx"]
@@ -143,15 +143,6 @@ offset_right = 235.0
 offset_bottom = 196.0
 pivot_offset = Vector2(78, 0)
 
-[node name="Label" type="Label" parent="tab/TabBar3/exit/VBoxContainer"]
-layout_mode = 2
-text = "Keluar?"
-horizontal_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="tab/TabBar3/exit/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="quit" type="Button" parent="tab/TabBar3/exit/VBoxContainer"]
 layout_mode = 2
 text = "Yakin"
@@ -173,13 +164,9 @@ script = ExtResource("3_8u60d")
 [node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar4/level"]
 layout_mode = 1
 offset_left = 40.0
-offset_right = 269.0
-offset_bottom = 249.0
-
-[node name="Label" type="Label" parent="tab/TabBar4/level/VBoxContainer"]
-layout_mode = 2
-text = "Tingkatan"
-horizontal_alignment = 1
+offset_top = 16.0
+offset_right = 266.0
+offset_bottom = 218.0
 
 [node name="level_1" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
 layout_mode = 2
@@ -218,9 +205,7 @@ offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "
-
-This game uses Godot Engine, available under the following license:
+text = "This game uses Godot Engine, available under the following license:
 
 Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
 
@@ -229,12 +214,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-
-[node name="close_button" type="Button" parent="Credits"]
-layout_mode = 0
-offset_right = 54.0
-offset_bottom = 31.0
-text = "Tutup"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -251,6 +230,7 @@ offset_right = 791.0
 offset_bottom = 347.0
 text = ">Tono"
 vertical_alignment = 2
+visible_ratio = -0.2
 
 [connection signal="mouse_entered" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_pressed"]
@@ -270,4 +250,3 @@ vertical_alignment = 2
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Credits/close_button" to="." method="_on_close_button_pressed"]

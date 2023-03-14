@@ -2,6 +2,7 @@ extends Control
 
 @onready var tab : TabContainer = $tab
 
+
 func _ready():
 	tab.current_tab = 0
 	Global._music_menu()
@@ -35,8 +36,10 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_credits_button_pressed():
-	$Credits.visible = true
-
+	if $Credits.visible == true:
+		$Credits.visible = false
+	else:
+		$Credits.visible = true
 func _on_credits_button_mouse_entered():
 	$tab/TabBar/menu/play/credits_button.grab_focus()
 
