@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb7t54tfdtvlf"]
+
+[ext_resource type="Script" path="res://src/level/ball.gd" id="1_stmuw"]
+[ext_resource type="PackedScene" uid="uid://2saf68c1phjo" path="res://assets/blender_fixed/level_1.tscn" id="2_u4dmb"]
+[ext_resource type="Environment" uid="uid://dx8tuoyyscet0" path="res://assets/resource/world_env.tres" id="2_vnuya"]
+[ext_resource type="Script" path="res://src/level/SpringArm3D.gd" id="3_8qe4u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3acl6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tjsw3"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_5e115"]
+
+[node name="level_1" type="Node3D"]
+
+[node name="level_1" parent="." instance=ExtResource("2_u4dmb")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.870382, 0.333241, -0.362473, 0, 0.736168, 0.676799, 0.492378, -0.589073, 0.640747, -4.62733, 2.78287, 0)
+
+[node name="player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.184542)
+
+[node name="CharacterBody3D" type="RigidBody3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01739, 0)
+script = ExtResource("1_stmuw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player/CharacterBody3D"]
+shape = SubResource("SphereShape3D_3acl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/CharacterBody3D"]
+mesh = SubResource("SphereMesh_tjsw3")
+skeleton = NodePath("../../..")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="player" node_paths=PackedStringArray("target_node")]
+transform = Transform3D(1, 0, 0, 0, 0.910359, 0.413819, 0, -0.41382, 0.910359, 0, 3.01739, 0)
+shape = SubResource("SeparationRayShape3D_5e115")
+spring_length = 10.0
+script = ExtResource("3_8qe4u")
+target_node = NodePath("../CharacterBody3D")
+
+[node name="Camera3D" type="Camera3D" parent="player/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.995429, 0.0954983, 0, -0.0954983, 0.99543, 0, 0.0267205, 2.97736)
+environment = ExtResource("2_vnuya")
+current = true
