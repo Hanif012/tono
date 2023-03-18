@@ -1,6 +1,5 @@
 extends SpringArm3D
 
-
 @export var target_node: Node3D
 
 func _process(delta):

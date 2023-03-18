@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb7t54tfdtvlf"]
+[gd_scene load_steps=9 format=3 uid="uid://cb7t54tfdtvlf"]
 
 [ext_resource type="Script" path="res://src/level/ball.gd" id="1_stmuw"]
 [ext_resource type="PackedScene" uid="uid://2saf68c1phjo" path="res://assets/blender_fixed/level_1.tscn" id="2_u4dmb"]
 [ext_resource type="Environment" uid="uid://dx8tuoyyscet0" path="res://assets/resource/world_env.tres" id="2_vnuya"]
 [ext_resource type="Script" path="res://src/level/SpringArm3D.gd" id="3_8qe4u"]
+[ext_resource type="Texture2D" uid="uid://dwnahnxcyvpjh" path="res://icon.svg" id="3_fg6g4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3acl6"]
 
@@ -14,12 +15,19 @@
 [node name="level_1" type="Node3D"]
 
 [node name="level_1" parent="." instance=ExtResource("2_u4dmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="level_2" parent="." instance=ExtResource("2_u4dmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 12, 0)
+
+[node name="level_3" parent="." instance=ExtResource("2_u4dmb")]
+transform = Transform3D(0.966582, -0.256357, 0, 0.256357, 0.966582, 0, 0, 0, 1, 16, 13.0447, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.870382, 0.333241, -0.362473, 0, 0.736168, 0.676799, 0.492378, -0.589073, 0.640747, -4.62733, 2.78287, 0)
+transform = Transform3D(0.870382, 0.333241, -0.362473, 0, 0.736168, 0.676799, 0.492378, -0.589073, 0.640747, -4.62733, 14.7829, 0)
 
 [node name="player" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.184542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0.184542)
 
 [node name="CharacterBody3D" type="RigidBody3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01739, 0)
@@ -31,6 +39,10 @@ shape = SubResource("SphereShape3D_3acl6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/CharacterBody3D"]
 mesh = SubResource("SphereMesh_tjsw3")
 skeleton = NodePath("../../..")
+
+[node name="Decal" type="Decal" parent="player/CharacterBody3D"]
+size = Vector3(2, 0.569819, 2)
+texture_albedo = ExtResource("3_fg6g4")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="player" node_paths=PackedStringArray("target_node")]
 transform = Transform3D(1, 0, 0, 0, 0.910359, 0.413819, 0, -0.41382, 0.910359, 0, 3.01739, 0)
