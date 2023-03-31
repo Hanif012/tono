@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Theme" uid="uid://bolx110np3d1n" path="res://assets/theme/theme.tres" id="1_bjcr1"]
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
-[ext_resource type="Script" path="res://src/ui/level.gd" id="3_8u60d"]
 [ext_resource type="StyleBox" uid="uid://cgxnaaip8426h" path="res://assets/theme/theme_old/key_cap_disabled.tres" id="4_hr6ee"]
 
 [node name="ui_menu" type="Control"]
@@ -159,7 +158,6 @@ layout_mode = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_8u60d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar4/level"]
 layout_mode = 1
