@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8je8ycpy0i1y"]
+
+[ext_resource type="Script" path="res://src/level/ball.gd" id="1_nvan3"]
+[ext_resource type="Texture2D" uid="uid://dwnahnxcyvpjh" path="res://icon.svg" id="2_8co4g"]
+[ext_resource type="Script" path="res://src/level/SpringArm3D.gd" id="3_msdi5"]
+[ext_resource type="Environment" uid="uid://dx8tuoyyscet0" path="res://assets/resource/world_env.tres" id="4_0g2n0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vtr8t"]
+bounce = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3acl6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tjsw3"]
+
+[node name="player" type="Node3D"]
+
+[node name="ball" type="RigidBody3D" parent="." groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_vtr8t")
+script = ExtResource("1_nvan3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
+shape = SubResource("SphereShape3D_3acl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ball"]
+mesh = SubResource("SphereMesh_tjsw3")
+skeleton = NodePath("../../..")
+
+[node name="Decal" type="Decal" parent="ball"]
+size = Vector3(2, 0.569819, 2)
+texture_albedo = ExtResource("2_8co4g")
+
+[node name="spring" type="Node3D" parent="." node_paths=PackedStringArray("target_node")]
+transform = Transform3D(1, 0, 0, 0, 0.284819, 0.958582, 0, -0.958582, 0.284819, 0, 3.01739, 0)
+script = ExtResource("3_msdi5")
+target_node = NodePath("../ball")
+
+[node name="Camera3D" type="Camera3D" parent="spring"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, -10, 10)
+environment = ExtResource("4_0g2n0")
+projection = 1
+current = true
+size = 10.0

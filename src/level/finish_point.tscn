@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqwne7ni1k128"]
+
+[ext_resource type="Script" path="res://src/level/finish_point.gd" id="1_261b1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i8b8j"]
+height = 1.0
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4747"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_rjaix"]
+material = SubResource("StandardMaterial3D_t4747")
+radius = 0.1
+height = 0.2
+rings = 18
+
+[node name="finish_point" type="Area3D"]
+script = ExtResource("1_261b1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_i8b8j")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.45058e-09, 0)
+amount = 16
+preprocess = 6.34
+local_coords = true
+mesh = SubResource("SphereMesh_rjaix")
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 1)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 9.8, 0)
+radial_accel_max = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
