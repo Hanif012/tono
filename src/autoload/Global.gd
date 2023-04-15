@@ -4,11 +4,14 @@ extends Node
 var transition: bool     = false
 var pause     : bool     = false
 
+func restart_level():
+	get_tree().call_group("instanced", "queue_free")
+	get_tree().reload_current_scene()
+
 #level_________________________
 var level_list = [
 	"res://src/level/level_1.tscn",
 	"res://src/level/level_2.tscn"
-	
 ]
 
 var level_index = 0  
@@ -16,9 +19,7 @@ func load_next_level():
 	level_index += 1
 	level_index %= level_list.size()
 	get_tree().call_group("instanced", "queue_free")
-	get_tree().change_scene(level_list[level_index])
-
-var coin
+	get_tree().change_scene_to_file(level_list[level_index])
 
 #music_________________________
 func _music_menu():

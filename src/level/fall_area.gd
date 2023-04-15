@@ -11,5 +11,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	get_tree().reload_current_scene()
+	Global.restart_level()
 
