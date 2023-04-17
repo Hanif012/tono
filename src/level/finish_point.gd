@@ -5,13 +5,13 @@ extends Area3D
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
 func _on_body_entered(body):
-
-		Global.load_next_level()
+		Loading.load_scene(self, "res://src/ui/ui_menu.tscn")
 		print("fin")
+
+

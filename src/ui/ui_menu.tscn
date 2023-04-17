@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
 
 [ext_resource type="Theme" uid="uid://bolx110np3d1n" path="res://assets/theme/theme.tres" id="1_bjcr1"]
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
 [ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
 [ext_resource type="StyleBox" uid="uid://cgxnaaip8426h" path="res://assets/theme/theme_old/key_cap_disabled.tres" id="4_hr6ee"]
+[ext_resource type="Script" path="res://src/ui/level.gd" id="5_m3yet"]
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -158,6 +159,7 @@ layout_mode = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_m3yet")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar4/level"]
 layout_mode = 1
@@ -248,4 +250,7 @@ visible_ratio = 0.0
 [connection signal="pressed" from="tab/TabBar2/audio_settings/audio/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_1" to="tab/TabBar4/level" method="_on_level_1_pressed"]
+[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_2" to="tab/TabBar4/level" method="_on_level_2_pressed"]
+[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_3" to="tab/TabBar4/level" method="_on_level_3_pressed"]
 [connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/back" to="." method="_on_back_pressed"]

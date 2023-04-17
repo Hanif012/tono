@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 Settings="*res://src/autoload/settings.gd"
 Global="*res://src/autoload/Global.tscn"
-Transition="*res://src/autoload/transition.tscn"
+Loading="*res://src/autoload/load.gd"
 
 [display]
 
@@ -105,3 +105,7 @@ left_awsd={
 [internationalization]
 
 locale/fallback="id_ID"
+
+[layer_names]
+
+3d_physics/layer_2="fin_point"

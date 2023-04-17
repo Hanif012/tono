@@ -15,6 +15,7 @@ bounce = 0.4
 [node name="player" type="Node3D"]
 
 [node name="ball" type="RigidBody3D" parent="." groups=["player"]]
+collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_vtr8t")
 script = ExtResource("1_nvan3")
 

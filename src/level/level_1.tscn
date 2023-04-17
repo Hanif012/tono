@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://oawfj2qcqcit"]
+[gd_scene load_steps=7 format=3 uid="uid://oawfj2qcqcit"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_7tiko"]
 [ext_resource type="PackedScene" uid="uid://buwwdiwn641do" path="res://assets/blender_fixed/map_1.tscn" id="5_p410r"]
@@ -12,9 +12,6 @@ resource_name = "platform"
 _data = {
 "platform": SubResource("Animation_in82s")
 }
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gtbd8"]
-size = Vector3(4, 4, 4)
 
 [node name="level_1" type="Node3D"]
 
@@ -39,10 +36,3 @@ libraries = {
 
 [node name="finish_point" parent="arena" instance=ExtResource("6_f4rs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14661, -5.86973, 11.3901)
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1408, 11.9118, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4664, 3, 0)
-shape = SubResource("BoxShape3D_gtbd8")

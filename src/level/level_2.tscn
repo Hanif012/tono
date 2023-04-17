@@ -16,14 +16,14 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_gtbd8"]
 size = Vector3(4, 4, 4)
 
-[node name="level_1" type="Node3D"]
+[node name="level_2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.155223, 0.783796, 0.601306, -0.856429, -0.196611, 0.477361, 0.492378, -0.589073, 0.640747, -20.9969, 20.0892, 1.03486)
 directional_shadow_mode = 0
 
 [node name="player" parent="." instance=ExtResource("1_vub0d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61738, 12.8139, -7.15975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36146, 12.8139, -1.83504)
 
 [node name="arena" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
@@ -36,7 +36,7 @@ libraries = {
 [node name="fall_area" parent="arena" instance=ExtResource("6_0diqw")]
 
 [node name="finish_point" parent="arena" instance=ExtResource("7_aawcs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14661, -5.86973, 11.3901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115311, 3.62453, -12.0923)
 
 [node name="map_2" parent="arena" instance=ExtResource("4_jgxiv")]
 
