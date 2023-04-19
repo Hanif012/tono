@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dy7o5itern6fg"
-path="res://.godot/imported/plat_cone.glb-54a2f2764eb07dd2b8efa5d530ce283c.scn"
+uid="uid://cxld3cxbb24b6"
+path="res://.godot/imported/map_2.glb-af9c2431e775b7209053864ca56d14cf.scn"
 
 [deps]
 
-source_file="res://assets/blender/plat_cone.glb"
-dest_files=["res://.godot/imported/plat_cone.glb-54a2f2764eb07dd2b8efa5d530ce283c.scn"]
+source_file="res://assets/blender/map_2/map_2.glb"
+dest_files=["res://.godot/imported/map_2.glb-af9c2431e775b7209053864ca56d14cf.scn"]
 
 [params]
 

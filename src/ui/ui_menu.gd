@@ -7,7 +7,8 @@ func _ready():
 	tab.current_tab = 0
 	Global._music_menu()
 	$Credits.visible = false
-#MENU
+
+#___________________________________MENU
 func _on_play_button_pressed():
 	tab.current_tab = 3
 
@@ -40,6 +41,7 @@ func _on_credits_button_pressed():
 		$Credits.visible = false
 	else:
 		$Credits.visible = true
+
 func _on_credits_button_mouse_entered():
 	$tab/TabBar/menu/play/credits_button.grab_focus()
 

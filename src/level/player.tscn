@@ -6,7 +6,9 @@
 [ext_resource type="Environment" uid="uid://dx8tuoyyscet0" path="res://assets/resource/world_env.tres" id="4_0g2n0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vtr8t"]
-bounce = 0.4
+rough = true
+bounce = 0.3
+absorbent = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3acl6"]
 

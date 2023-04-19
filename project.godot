@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 
 Settings="*res://src/autoload/settings.gd"
 Global="*res://src/autoload/Global.tscn"
-Loading="*res://src/autoload/load.gd"
 
 [display]
 

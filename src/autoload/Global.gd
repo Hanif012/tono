@@ -1,12 +1,18 @@
 extends Node
 
 #game system___________________
-var transition: bool     = false
 var pause     : bool     = false
+var next_scene: String
 
 func restart_level():
 	get_tree().call_group("instanced", "queue_free")
 	get_tree().reload_current_scene()
+
+func loading(target):
+	next_scene = target
+	var scene = preload("res://src/ui/transition.tscn")
+	var instance = scene.instantiate()
+	add_child(instance)
 
 #level_________________________
 var level_list = [

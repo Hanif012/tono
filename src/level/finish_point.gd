@@ -11,7 +11,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-		Loading.load_scene(self, "res://src/ui/ui_menu.tscn")
+		Global.loading()
 		print("fin")
 
 
