@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2vbsespsqvx2"]
+[gd_scene load_steps=8 format=3 uid="uid://d2vbsespsqvx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_7tiko"]
+[ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="5_dgfdr"]
 [ext_resource type="PackedScene" uid="uid://buwwdiwn641do" path="res://assets/blender_fixed/map_1.tscn" id="5_p410r"]
 [ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="6_ey3ac"]
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="6_f4rs5"]
@@ -36,3 +37,8 @@ libraries = {
 
 [node name="finish_point" parent="arena" instance=ExtResource("6_f4rs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14661, -5.86973, 11.3901)
+target_loading = "res://src/ui/ui_menu.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui_game" parent="CanvasLayer" instance=ExtResource("5_dgfdr")]

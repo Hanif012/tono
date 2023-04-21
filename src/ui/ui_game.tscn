@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl5tlrguxb8mt"]
+
+[ext_resource type="Script" path="res://src/ui/ui_game.gd" id="1_rwf1h"]
+[ext_resource type="Script" path="res://src/ui/pause.gd" id="2_7135d"]
+
+[node name="ui_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwf1h")
+
+[node name="timer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="timer_label" type="Label" parent="timer"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 62.0
+offset_right = 148.0
+offset_bottom = 100.0
+text = "0.0"
+
+[node name="pause" type="Control" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_7135d")
+
+[node name="Resume" type="Button" parent="pause"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_right = -1082.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"

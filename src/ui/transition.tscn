@@ -1,8 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://crtaq61hjwbhg"]
+[gd_scene load_steps=5 format=3 uid="uid://crtaq61hjwbhg"]
 
 [ext_resource type="Script" path="res://src/ui/transition.gd" id="1_358uw"]
 
+[sub_resource type="Animation" id="Animation_b4el3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3giw0"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ar33a"]
+_data = {
+"RESET": SubResource("Animation_b4el3"),
+"blink": SubResource("Animation_3giw0")
+}
+
 [node name="transition" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_358uw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -11,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.32549, 0.32549, 0.32549, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 8
@@ -26,18 +65,23 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 
-[node name="continue" type="Button" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "blink"
+libraries = {
+"": SubResource("AnimationLibrary_ar33a")
+}
+
+[node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = 156.0
-offset_right = 2.0
-offset_bottom = 164.0
+offset_left = -43.5
+offset_top = 88.0
+offset_right = 43.5
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "press to continue"
-
-[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+text = "Tekan spasi untuk melanjutkan"
+horizontal_alignment = 1

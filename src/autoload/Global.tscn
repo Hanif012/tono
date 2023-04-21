@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://h5qx7hrys6v8" path="res://assets/music/Kipas.ogg" id="2_b376e"]
 
 [node name="Global" type="Node"]
+process_mode = 3
 script = ExtResource("1_xsu3a")
 
 [node name="music" type="Node" parent="."]

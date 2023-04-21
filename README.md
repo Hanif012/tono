@@ -1,3 +1,3 @@
-"# tono" 
+# Tono
 
-for telkom ''
+for telkom
