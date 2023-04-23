@@ -39,6 +39,6 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14661, -5.86973, 11.3901)
 target_loading = "res://src/ui/ui_menu.tscn"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ui" type="CanvasLayer" parent="."]
 
-[node name="ui_game" parent="CanvasLayer" instance=ExtResource("5_dgfdr")]
+[node name="ui_game" parent="ui" instance=ExtResource("5_dgfdr")]

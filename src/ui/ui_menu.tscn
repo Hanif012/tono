@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbup350fbqp5b"]
+[gd_scene load_steps=4 format=3 uid="uid://bbup350fbqp5b"]
 
-[ext_resource type="Theme" uid="uid://bolx110np3d1n" path="res://assets/theme/theme.tres" id="1_bjcr1"]
+[ext_resource type="Theme" uid="uid://b5nt337l2sqxi" path="res://assets/theme/default_theme.tres" id="1_ubidy"]
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
-[ext_resource type="Script" path="res://src/ui/audio.gd" id="2_o1s8e"]
-[ext_resource type="StyleBox" uid="uid://cgxnaaip8426h" path="res://assets/theme/theme_old/key_cap_disabled.tres" id="4_hr6ee"]
-[ext_resource type="Script" path="res://src/ui/level.gd" id="5_m3yet"]
+[ext_resource type="PackedScene" uid="uid://b60pmm7dsjb80" path="res://src/ui/audio_settings.tscn" id="3_hrlyw"]
 
 [node name="ui_menu" type="Control"]
 layout_mode = 3
@@ -13,21 +11,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_bjcr1")
+theme = ExtResource("1_ubidy")
 script = ExtResource("1_w3rdv")
 
-[node name="tab" type="TabContainer" parent="."]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 365.0
-offset_right = 809.0
-offset_bottom = 614.0
-tabs_visible = false
+[node name="main" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TabBar" type="TabBar" parent="tab"]
-layout_mode = 2
+[node name="credits" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="menu" type="Control" parent="tab/TabBar"]
+[node name="panel_credits" type="Panel" parent="credits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,222 +42,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="play" type="VBoxContainer" parent="tab/TabBar/menu"]
+[node name="PanelContainer" type="PanelContainer" parent="credits/panel_credits"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 18.0
-offset_right = 125.0
-offset_bottom = 178.0
-pivot_offset = Vector2(50, 0)
+offset_left = 28.0
+offset_right = 571.0
+offset_bottom = 266.0
 
-[node name="play_button" type="Button" parent="tab/TabBar/menu/play"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../quit_button")
-focus_neighbor_bottom = NodePath("../settings_button")
-text = "Mainkan"
-
-[node name="settings_button" type="Button" parent="tab/TabBar/menu/play"]
-layout_mode = 2
-text = "Pengaturan"
-
-[node name="credits_button" type="Button" parent="tab/TabBar/menu/play"]
-layout_mode = 2
-text = "Tentang"
-
-[node name="quit_button" type="Button" parent="tab/TabBar/menu/play"]
-layout_mode = 2
-text = "Keluar"
-
-[node name="TabBar2" type="TabBar" parent="tab"]
-visible = false
-layout_mode = 2
-
-[node name="audio_settings" type="Control" parent="tab/TabBar2"]
+[node name="settings" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
 
-[node name="audio" type="VBoxContainer" parent="tab/TabBar2/audio_settings"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 0
-offset_left = 40.0
-offset_top = 20.0
-offset_right = 274.0
-offset_bottom = 186.0
-script = ExtResource("2_o1s8e")
-
-[node name="music" type="HBoxContainer" parent="tab/TabBar2/audio_settings/audio"]
-layout_mode = 2
-
-[node name="Music" type="Label" parent="tab/TabBar2/audio_settings/audio/music"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("4_hr6ee")
-text = "Musik"
-
-[node name="music_slider" type="HSlider" parent="tab/TabBar2/audio_settings/audio/music"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-focus_neighbor_top = NodePath("../../back")
-max_value = 1.0
-step = 0.01
-value = 0.5
-ticks_on_borders = true
-
-[node name="sfx" type="HBoxContainer" parent="tab/TabBar2/audio_settings/audio"]
-layout_mode = 2
-
-[node name="Sfx" type="Label" parent="tab/TabBar2/audio_settings/audio/sfx"]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-theme_override_styles/normal = ExtResource("4_hr6ee")
-text = "Efek Suara"
-
-[node name="sfx_slider" type="HSlider" parent="tab/TabBar2/audio_settings/audio/sfx"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 0.5
-ticks_on_borders = true
-
-[node name="confirm" type="Button" parent="tab/TabBar2/audio_settings/audio"]
-layout_mode = 2
-text = "Konfirmasi"
-
-[node name="back" type="Button" parent="tab/TabBar2/audio_settings/audio"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../music/music_slider")
-text = "Kembali"
-
-[node name="TabBar3" type="TabBar" parent="tab"]
-visible = false
-layout_mode = 2
-
-[node name="exit" type="Control" parent="tab/TabBar3"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar3/exit"]
-layout_mode = 0
-offset_left = 79.0
-offset_top = 76.0
-offset_right = 235.0
-offset_bottom = 196.0
-pivot_offset = Vector2(78, 0)
-
-[node name="quit" type="Button" parent="tab/TabBar3/exit/VBoxContainer"]
-layout_mode = 2
-text = "Yakin"
-
-[node name="back" type="Button" parent="tab/TabBar3/exit/VBoxContainer"]
-layout_mode = 2
-text = "Kembali"
-
-[node name="TabBar4" type="TabBar" parent="tab"]
-visible = false
-layout_mode = 2
-
-[node name="level" type="Control" parent="tab/TabBar4"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_m3yet")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="tab/TabBar4/level"]
+[node name="audio_settings" parent="settings" instance=ExtResource("3_hrlyw")]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 266.0
-offset_bottom = 218.0
-
-[node name="level_1" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
-layout_mode = 2
-text = "Tingkat 1"
-
-[node name="level_2" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
-layout_mode = 2
-text = "Tingkat 2"
-
-[node name="level_3" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
-layout_mode = 2
-text = "Tingkat 3"
-
-[node name="MarginContainer" type="MarginContainer" parent="tab/TabBar4/level/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="back" type="Button" parent="tab/TabBar4/level/VBoxContainer"]
-layout_mode = 2
-text = "Kembali"
-
-[node name="Credits" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 477.0
-offset_bottom = 720.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 37.0
-offset_top = 19.0
-offset_right = -28.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "This game uses Godot Engine, available under the following license:
-
-Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 135.0
-offset_right = 809.0
-offset_bottom = 367.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 519.0
-offset_top = 144.0
-offset_right = 791.0
-offset_bottom = 347.0
-text = ">Tono"
-vertical_alignment = 2
-visible_characters = 0
-visible_ratio = 0.0
-
-[connection signal="mouse_entered" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar/menu/play/play_button" to="." method="_on_play_button_pressed"]
-[connection signal="mouse_entered" from="tab/TabBar/menu/play/settings_button" to="." method="_on_settings_button_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar/menu/play/settings_button" to="." method="_on_settings_button_pressed"]
-[connection signal="mouse_entered" from="tab/TabBar/menu/play/credits_button" to="." method="_on_credits_button_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar/menu/play/credits_button" to="." method="_on_credits_button_pressed"]
-[connection signal="mouse_entered" from="tab/TabBar/menu/play/quit_button" to="." method="_on_quit_button_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar/menu/play/quit_button" to="." method="_on_quit_menu_button_pressed"]
-[connection signal="value_changed" from="tab/TabBar2/audio_settings/audio/music/music_slider" to="tab/TabBar2/audio_settings/audio" method="_on_music_volume_value_changed" flags=18]
-[connection signal="value_changed" from="tab/TabBar2/audio_settings/audio/sfx/sfx_slider" to="tab/TabBar2/audio_settings/audio" method="_on_sound_volume_value_changed" flags=18]
-[connection signal="mouse_entered" from="tab/TabBar2/audio_settings/audio/confirm" to="tab/TabBar2/audio_settings/audio" method="_on_confirm_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar2/audio_settings/audio/confirm" to="tab/TabBar2/audio_settings/audio" method="_on_done_pressed" flags=18]
-[connection signal="ready" from="tab/TabBar2/audio_settings/audio/confirm" to="." method="_on_confirm_ready"]
-[connection signal="mouse_entered" from="tab/TabBar2/audio_settings/audio/back" to="tab/TabBar2/audio_settings/audio" method="_on_back_mouse_entered"]
-[connection signal="pressed" from="tab/TabBar2/audio_settings/audio/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="tab/TabBar3/exit/VBoxContainer/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_1" to="tab/TabBar4/level" method="_on_level_1_pressed"]
-[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_2" to="tab/TabBar4/level" method="_on_level_2_pressed"]
-[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/level_3" to="tab/TabBar4/level" method="_on_level_3_pressed"]
-[connection signal="pressed" from="tab/TabBar4/level/VBoxContainer/back" to="." method="_on_back_pressed"]
+theme = ExtResource("1_ubidy")

@@ -50,3 +50,20 @@ offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Resume"
+
+[node name="Menu" type="Button" parent="pause"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 42.0
+offset_right = -1082.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu
+"
+
+[connection signal="pressed" from="pause/Resume" to="pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause/Menu" to="pause" method="_on_menu_pressed"]
