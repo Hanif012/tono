@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d12en5v5it1li"]
+
+[ext_resource type="Shader" path="res://assets/resource/bg.gdshader" id="1_vcvj0"]
+
+[resource]
+shader = ExtResource("1_vcvj0")
+shader_parameter/start_color = Color(0.298039, 0.298039, 0.298039, 0.105882)
+shader_parameter/end_color = Color(0, 0, 0, 0.113725)
+shader_parameter/zoom = 1.0
+shader_parameter/blur_amount = 0.0
+shader_parameter/alpha_blend = 0.0

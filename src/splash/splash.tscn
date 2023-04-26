@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbi4q2ptc2u6c"]
+[gd_scene load_steps=10 format=3 uid="uid://cbi4q2ptc2u6c"]
 
 [ext_resource type="Script" path="res://src/splash/splash.gd" id="1_gxybb"]
 [ext_resource type="Texture2D" uid="uid://vrq80i6ku5gu" path="res://assets/logo/logo_1.jpg" id="1_mf2n6"]
 [ext_resource type="Texture2D" uid="uid://dnbxtd7qercvg" path="res://assets/logo/logo_2.jpg" id="2_sllrl"]
 [ext_resource type="Texture2D" uid="uid://dtlbb7hmhb03f" path="res://assets/logo/logo_3.jpg" id="3_ocw7e"]
 [ext_resource type="Texture2D" uid="uid://bg16ylitbxjjw" path="res://assets/logo/logo_4.jpg" id="4_3v316"]
+[ext_resource type="Material" uid="uid://d12en5v5it1li" path="res://assets/resource/blur.tres" id="6_6n1wk"]
 
 [sub_resource type="Animation" id="Animation_0bi4f"]
 length = 0.001
@@ -67,6 +68,42 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("blur:material:shader_parameter/zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blur:material:shader_parameter/blur_amount")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("blur:material:shader_parameter/alpha_blend")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_jffhm"]
@@ -132,6 +169,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("blur:material:shader_parameter/zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1.4, 1.6, 1.8, 2, 2.9, 3.1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [1.0, 1.05, 1.0, 1.0, 1.05, 1.05, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blur:material:shader_parameter/blur_amount")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.6, 1.8, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, 2.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("blur:material:shader_parameter/alpha_blend")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.6, 1.8, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egbek"]
 _data = {
@@ -147,12 +220,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gxybb")
-
-[node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "colloid_studios"
-libraries = {
-"": SubResource("AnimationLibrary_egbek")
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -190,5 +257,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.262745, 0, 1)
+
+[node name="blur" type="ColorRect" parent="."]
+material = ExtResource("6_6n1wk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "colloid_studios"
+libraries = {
+"": SubResource("AnimationLibrary_egbek")
+}
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

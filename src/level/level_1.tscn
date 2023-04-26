@@ -1,10 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2vbsespsqvx2"]
+[gd_scene load_steps=10 format=3 uid="uid://d2vbsespsqvx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_7tiko"]
+[ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_dxxmb"]
+[ext_resource type="PackedScene" uid="uid://13u0xlrv48xp" path="res://assets/3d/maze.tscn" id="4_kvrj1"]
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="5_dgfdr"]
-[ext_resource type="PackedScene" uid="uid://buwwdiwn641do" path="res://assets/blender_fixed/map_1.tscn" id="5_p410r"]
 [ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="6_ey3ac"]
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="6_f4rs5"]
+
+[sub_resource type="Environment" id="Environment_spnep"]
+background_mode = 3
+background_color = Color(1, 1, 1, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.792157, 0.792157, 0.792157, 1)
+ambient_light_sky_contribution = 0.2
+reflected_light_source = 2
+tonemap_white = 0.0
+glow_enabled = true
 
 [sub_resource type="Animation" id="Animation_in82s"]
 resource_name = "platform"
@@ -16,28 +27,42 @@ _data = {
 
 [node name="level_1" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.155223, 0.783796, 0.601306, -0.856429, -0.196611, 0.477361, 0.492378, -0.589073, 0.640747, -20.9969, 20.0892, 1.03486)
-directional_shadow_mode = 0
+[node name="main_we" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_spnep")
+
+[node name="sorot3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.956863, 0.964706, 0.898039, 1)
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.01
+sky_mode = 1
 
 [node name="player" parent="." instance=ExtResource("1_7tiko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5383, 28.7557, -2.60155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21273, 4.8042, -0.0504761)
 
 [node name="arena" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
+
+[node name="board" parent="arena" instance=ExtResource("2_dxxmb")]
+transform = Transform3D(4.18, 0, 0, 0, 1, 0, 0, 0, 3.757, 0, -8.03717, 0)
+
+[node name="fall_area" parent="arena/board" instance=ExtResource("6_ey3ac")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, -0.161499, 0)
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="arena"]
 libraries = {
 "": SubResource("AnimationLibrary_1lbo2")
 }
 
-[node name="map_1" parent="arena" instance=ExtResource("5_p410r")]
-
-[node name="fall_area" parent="arena" instance=ExtResource("6_ey3ac")]
-
 [node name="finish_point" parent="arena" instance=ExtResource("6_f4rs5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14661, -5.86973, 11.3901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -6.78014, 5.87368)
 target_loading = "res://src/ui/ui_menu.tscn"
+
+[node name="maze" parent="arena" instance=ExtResource("4_kvrj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
 
 [node name="ui" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hoosu7um7ixg"]
+
+[resource]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+metallic = 0.1
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.0
+anisotropy_enabled = true
+anisotropy = 0.29
+ao_enabled = true
+ao_light_affect = 0.17
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.21
+backlight = Color(0.913725, 0.913725, 0.913725, 1)

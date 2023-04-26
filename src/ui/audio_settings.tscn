@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://b60pmm7dsjb80"]
+
+[ext_resource type="Script" path="res://src/ui/audio.gd" id="1_2yxwu"]
+[ext_resource type="StyleBox" uid="uid://cgxnaaip8426h" path="res://assets/theme/theme_old/key_cap_disabled.tres" id="2_7yeqi"]
+
+[node name="audio_settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="audio" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 274.0
+offset_bottom = 186.0
+script = ExtResource("1_2yxwu")
+
+[node name="music" type="HBoxContainer" parent="audio"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="audio/music"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_7yeqi")
+text = "Musik"
+
+[node name="music_slider" type="HSlider" parent="audio/music"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+ticks_on_borders = true
+
+[node name="sfx" type="HBoxContainer" parent="audio"]
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="audio/sfx"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_7yeqi")
+text = "Efek Suara"
+
+[node name="sfx_slider" type="HSlider" parent="audio/sfx"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+ticks_on_borders = true
+
+[node name="confirm" type="Button" parent="audio"]
+layout_mode = 2
+text = "Konfirmasi"
+
+[connection signal="value_changed" from="audio/music/music_slider" to="audio" method="_on_music_volume_value_changed" flags=18]
+[connection signal="value_changed" from="audio/sfx/sfx_slider" to="audio" method="_on_sound_volume_value_changed" flags=18]
+[connection signal="mouse_entered" from="audio/confirm" to="audio" method="_on_confirm_mouse_entered"]
+[connection signal="pressed" from="audio/confirm" to="audio" method="_on_done_pressed" flags=18]

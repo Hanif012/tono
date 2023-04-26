@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4n37ly0r2jnt"]
+
+[ext_resource type="PackedScene" uid="uid://jo1to6e1seor" path="res://assets/blender/level_1/board.gltf" id="1_06s7q"]
+
+[node name="board" instance=ExtResource("1_06s7q")]

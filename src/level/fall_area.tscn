@@ -6,7 +6,6 @@
 size = Vector3(100, 1, 100)
 
 [node name="fall_area" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23, 0)
 script = ExtResource("1_q1c11")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

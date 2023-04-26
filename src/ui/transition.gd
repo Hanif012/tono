@@ -10,12 +10,14 @@ func _ready():
 	ResourceLoader.load_threaded_request(scene)
 	print("Go to  %s (transition)" %scene)
 	$Label.visible = false
+	$Label2.visible = true
 
 func _process(delta):
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene,progress)
 	progress_bar.value = progress[0] * 100
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED :
 		$Label.visible = true
+		$Label2.visible = false
 
 func _input(event):
 	if event is InputEventKey:
