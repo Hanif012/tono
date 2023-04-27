@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqwne7ni1k128"]
+[gd_scene load_steps=15 format=3 uid="uid://cqwne7ni1k128"]
 
 [ext_resource type="Script" path="res://src/level/finish_point.gd" id="1_261b1"]
 [ext_resource type="Material" uid="uid://hoosu7um7ixg" path="res://assets/resource/glow.tres" id="2_gna6p"]
@@ -34,6 +34,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.28964, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D/OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.957]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D2:surface_material_override/0:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7l3ee"]
 resource_name = "start"
@@ -51,11 +75,84 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 1.28964, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_25ax5"]
+resource_name = "finish"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 2, 0), Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 2, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_next_scene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D/OmniLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [3.957, 5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:surface_material_override/0:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0kgjq"]
 _data = {
 "RESET": SubResource("Animation_kboqa"),
+"finish": SubResource("Animation_25ax5"),
 "start": SubResource("Animation_7l3ee")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7am18"]
+animation = &"finish"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12kxo"]
+animation = &"start"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_55ft4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7k3py"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_12kxo")
+nodes/Animation/position = Vector2(40, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_7am18")
+"nodes/Animation 2/position" = Vector2(40, 180)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_55ft4")
+nodes/Blend2/position = Vector2(240, 80)
+nodes/output/position = Vector2(500, 80)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2"]
 
 [node name="finish_point" type="Area3D"]
 collision_layer = 2
@@ -68,6 +165,8 @@ shape = SubResource("CylinderShape3D_i8b8j")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 amount = 18
+preprocess = 50.0
+fixed_fps = 30
 mesh = SubResource("SphereMesh_ogjrt")
 emission_shape = 3
 emission_box_extents = Vector3(0.4, 0.1, 0.4)
@@ -100,5 +199,11 @@ autoplay = "start"
 libraries = {
 "": SubResource("AnimationLibrary_0kgjq")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_7k3py")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Blend2/blend_amount = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

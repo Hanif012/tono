@@ -1,5 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4n37ly0r2jnt"]
+[gd_scene load_steps=3 format=3 uid="uid://c4n37ly0r2jnt"]
 
 [ext_resource type="PackedScene" uid="uid://jo1to6e1seor" path="res://assets/blender/level_1/board.gltf" id="1_06s7q"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fa22o"]
+size = Vector3(20, 0.001, 20)
+
 [node name="board" instance=ExtResource("1_06s7q")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_fa22o")

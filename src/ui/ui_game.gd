@@ -23,3 +23,5 @@ func _input(event):
 			get_tree().paused = true
 			print("paused")
 			$AnimationPlayer.play("pause")
+
+
