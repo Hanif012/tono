@@ -6,6 +6,10 @@
 size = Vector3(100, 1, 100)
 
 [node name="fall_area" type="Area3D"]
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 400.0
 script = ExtResource("1_q1c11")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

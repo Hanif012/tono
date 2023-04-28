@@ -1,5 +1,5 @@
 extends Control
-
+@export var level_index    = 0
 @onready var timer_display = $timer/timer_label
 @onready var anim_player = $AnimationPlayer
 @onready var ui_pause = $pause
@@ -18,10 +18,13 @@ func get_timer_str():
 func _input(event):
 	if event is InputEventKey:
 		if event.is_action_pressed("pause") and !Global.pause:
+			Global.audio_click_ui()
 			ui_pause.visible = true
 			Global.pause = true
 			get_tree().paused = true
 			print("paused")
 			$AnimationPlayer.play("pause")
 
-
+func _on_finish_point_ballin():
+	Global.update_highscore(timer, level_index)
+	

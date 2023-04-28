@@ -170,6 +170,12 @@ libraries = {
 "": SubResource("AnimationLibrary_edie8")
 }
 
+[connection signal="focus_entered" from="pause/Resume" to="pause" method="_on_resume_focus_entered"]
+[connection signal="mouse_entered" from="pause/Resume" to="pause" method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="pause/Resume" to="pause" method="_on_resume_pressed"]
+[connection signal="focus_entered" from="pause/Restart" to="pause" method="_on_restart_focus_entered"]
+[connection signal="mouse_entered" from="pause/Restart" to="pause" method="_on_restart_mouse_entered"]
 [connection signal="pressed" from="pause/Restart" to="pause" method="_on_restart_pressed"]
+[connection signal="focus_entered" from="pause/Menu" to="pause" method="_on_menu_focus_entered"]
+[connection signal="mouse_entered" from="pause/Menu" to="pause" method="_on_menu_mouse_entered"]
 [connection signal="pressed" from="pause/Menu" to="pause" method="_on_menu_pressed"]

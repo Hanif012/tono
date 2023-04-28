@@ -118,3 +118,8 @@ locale/fallback="id_ID"
 [layer_names]
 
 3d_physics/layer_2="fin_point"
+
+[physics]
+
+3d/solver/contact_max_separation=0.03
+3d/solver/contact_max_allowed_penetration=0.0

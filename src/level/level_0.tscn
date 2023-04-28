@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciaydg6lluvlm"]
+
+[ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_btife"]
+[ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_0bie8"]
+[ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="3_xl8x5"]
+[ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_vjqee"]
+[ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_0da5s"]
+[ext_resource type="Script" path="res://src/level/save.gd" id="6_doo0s"]
+
+[sub_resource type="Environment" id="Environment_spnep"]
+background_mode = 1
+background_color = Color(0.235294, 0.45098, 0.847059, 1)
+background_energy_multiplier = 1.5
+ambient_light_source = 3
+ambient_light_color = Color(0.792157, 0.792157, 0.792157, 1)
+ambient_light_sky_contribution = 0.2
+reflected_light_source = 2
+tonemap_white = 0.0
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_in82s"]
+resource_name = "platform"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lbo2"]
+_data = {
+"platform": SubResource("Animation_in82s")
+}
+
+[sub_resource type="Animation" id="Animation_f1bxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/save/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ae5wu"]
+resource_name = "save"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/save/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.888, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyq7v"]
+_data = {
+"RESET": SubResource("Animation_f1bxj"),
+"save": SubResource("Animation_ae5wu")
+}
+
+[node name="level_0" type="Node3D"]
+
+[node name="main_we" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_spnep")
+
+[node name="sorot3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.956863, 0.964706, 0.898039, 1)
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.01
+sky_mode = 1
+
+[node name="player" parent="." instance=ExtResource("1_btife")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5107, 4.8042, -2.54744)
+
+[node name="arena" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
+
+[node name="fall_area" parent="arena" instance=ExtResource("3_xl8x5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -10.2582, 0)
+linear_damp = 0.0
+
+[node name="board" parent="arena" instance=ExtResource("2_0bie8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.78783, -8.03717, -0.321887)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="arena"]
+libraries = {
+"": SubResource("AnimationLibrary_1lbo2")
+}
+
+[node name="finish_point" parent="arena" instance=ExtResource("4_vjqee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -7.94589, 5.87368)
+target_loading = "res://src/level/level_1.tscn"
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="ui_game" parent="ui" instance=ExtResource("6_0da5s")]
+
+[node name="save" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 173.0
+offset_bottom = 40.0
+script = ExtResource("6_doo0s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/save"]
+root_node = NodePath("../../..")
+autoplay = "save"
+libraries = {
+"": SubResource("AnimationLibrary_lyq7v")
+}
+
+[node name="Label" type="Label" parent="ui/save"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Menyimpan Otomatis...."
+visible_characters = 0
+visible_ratio = 0.0

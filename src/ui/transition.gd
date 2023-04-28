@@ -11,6 +11,8 @@ func _ready():
 	print("Go to  %s (transition)" %scene)
 	$Label.visible = false
 	$Label2.visible = true
+	$Label3.set_text("Level 1 Highscore: %f", Global.lvl_1_highscore)
+	
 
 func _process(delta):
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene,progress)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2vbsespsqvx2"]
+[gd_scene load_steps=10 format=3 uid="uid://d2vbsespsqvx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_7tiko"]
-[ext_resource type="Script" path="res://src/level/level_1.gd" id="1_n7riu"]
 [ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_dxxmb"]
 [ext_resource type="PackedScene" uid="uid://13u0xlrv48xp" path="res://assets/3d/maze.tscn" id="4_kvrj1"]
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="5_dgfdr"]
@@ -28,7 +27,6 @@ _data = {
 }
 
 [node name="level_1" type="Node3D"]
-script = ExtResource("1_n7riu")
 
 [node name="main_we" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_spnep")
@@ -70,5 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.12175, 0)
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="ui_game" parent="ui" instance=ExtResource("5_dgfdr")]
+level_index = 1
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
 
 [connection signal="ballin" from="arena/finish_point" to="arena/board/fall_area" method="_on_finish_point_ballin"]
+[connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2b3105peo7tj"]
+[gd_scene load_steps=6 format=3 uid="uid://c2b3105peo7tj"]
 
 [ext_resource type="Script" path="res://src/autoload/Global.gd" id="1_xsu3a"]
 [ext_resource type="AudioStream" uid="uid://h5qx7hrys6v8" path="res://assets/music/Kipas.ogg" id="2_b376e"]
+[ext_resource type="AudioStream" uid="uid://c8cenik2v2egp" path="res://assets/music/click.ogg" id="3_81qlg"]
+[ext_resource type="AudioStream" uid="uid://7dnsrmh66t6b" path="res://assets/music/hover.ogg" id="4_w8feb"]
+[ext_resource type="AudioStream" uid="uid://bacwjj1pq4jsk" path="res://assets/music/squick.ogg" id="5_hkp1b"]
 
 [node name="Global" type="Node"]
 process_mode = 3
@@ -17,4 +20,19 @@ bus = &"Music"
 [node name="sfx" type="Node" parent="."]
 
 [node name="click" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("3_81qlg")
+volume_db = -10.0
+pitch_scale = 1.36
+bus = &"Sfx"
+
+[node name="hover" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("4_w8feb")
+volume_db = -9.197
+pitch_scale = 1.6
+bus = &"Sfx"
+
+[node name="squick" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("5_hkp1b")
+volume_db = -6.367
+pitch_scale = 0.81
 bus = &"Sfx"

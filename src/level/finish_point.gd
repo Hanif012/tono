@@ -11,5 +11,3 @@ func _on_body_entered(body):
 func load_next_scene():
 	Global.loading(target_loading)
 	print("fin")
-	
-

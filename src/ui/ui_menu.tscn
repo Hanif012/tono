@@ -195,11 +195,11 @@ layout_mode = 2
 text = "Simpanan akan hilang selamanya!
 Apakah yakin?"
 
-[node name="Button" type="Button" parent="settings/TextureRect/TextureRect/VBoxContainer"]
+[node name="delete_confirm" type="Button" parent="settings/TextureRect/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Yakin"
 
-[node name="Button2" type="Button" parent="settings/TextureRect/TextureRect/VBoxContainer"]
+[node name="back" type="Button" parent="settings/TextureRect/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Kembali
 "
@@ -238,13 +238,29 @@ text = "Kembali
 layout_mode = 2
 text = "Keluar"
 
+[connection signal="mouse_entered" from="main/play_button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="main/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="main/settings_button" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="main/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="main/credits_button" to="." method="_on_credits_button_mouse_entered"]
 [connection signal="pressed" from="main/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="main/quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="main/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="level/VBoxContainer/level_1" to="." method="_on_level_1_mouse_entered"]
 [connection signal="pressed" from="level/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="mouse_entered" from="level/VBoxContainer/level_2" to="." method="_on_level_2_mouse_entered"]
 [connection signal="pressed" from="level/VBoxContainer/level_2" to="." method="_on_level_2_pressed"]
+[connection signal="mouse_entered" from="level/VBoxContainer/level_3" to="." method="_on_level_3_mouse_entered"]
 [connection signal="pressed" from="level/VBoxContainer/level_3" to="." method="_on_level_3_pressed"]
+[connection signal="mouse_entered" from="level/VBoxContainer/level_4" to="." method="_on_level_4_mouse_entered"]
 [connection signal="pressed" from="level/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="focus_entered" from="settings/TextureRect/delete_save_file" to="." method="_on_delete_save_file_focus_entered"]
+[connection signal="pressed" from="settings/TextureRect/delete_save_file" to="." method="_on_delete_save_file_pressed"]
+[connection signal="mouse_entered" from="settings/TextureRect/TextureRect/VBoxContainer/delete_confirm" to="." method="_on_delete_confirm_mouse_entered"]
+[connection signal="pressed" from="settings/TextureRect/TextureRect/VBoxContainer/delete_confirm" to="." method="_on_delete_confirm_pressed"]
+[connection signal="mouse_entered" from="settings/TextureRect/TextureRect/VBoxContainer/back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="settings/TextureRect/TextureRect/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="quit/VBoxContainer/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="quit/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="quit/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="quit/VBoxContainer/quit" to="." method="_on_quit_pressed"]

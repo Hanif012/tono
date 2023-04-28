@@ -11,6 +11,7 @@ func _input(event):
 			_on_resume_pressed()
 
 func _on_resume_pressed():
+			click_sfx()
 			Global.pause = false
 			await get_tree().create_timer(0.1).timeout
 			self.visible = false
@@ -19,11 +20,13 @@ func _on_resume_pressed():
 			$"../AnimationPlayer".play_backwards("pause")
 
 func _on_menu_pressed():
+	click_sfx()
 	Global.loading("res://src/ui/ui_menu.tscn")
 	_on_resume_pressed()
 
 
 func _on_restart_pressed():
+	click_sfx()
 	Global.pause = false
 	await get_tree().create_timer(0.1).timeout
 	self.visible = false
@@ -35,3 +38,17 @@ func _restart_level():
 	$"../AnimationPlayer".stop()
 	Global.restart_level()
 	
+func click_sfx():
+	Global.audio_click_ui()
+func _on_resume_focus_entered():
+	Global.audio_hover_ui()
+func _on_restart_focus_entered():
+	Global.audio_hover_ui()
+func _on_menu_focus_entered():
+	Global.audio_hover_ui()
+func _on_resume_mouse_entered():
+	Global.audio_hover_ui()
+func _on_restart_mouse_entered():
+	Global.audio_hover_ui()
+func _on_menu_mouse_entered():
+	Global.audio_hover_ui()

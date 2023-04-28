@@ -97,7 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.32549, 0.32549, 0.32549, 1)
+color = Color(0.188235, 0.356863, 0.380392, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 8
@@ -147,3 +147,9 @@ offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Loading"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 557.0
+offset_top = 188.0
+offset_right = 718.0
+offset_bottom = 278.0
