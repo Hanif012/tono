@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciaydg6lluvlm"]
+[gd_scene load_steps=10 format=3 uid="uid://ciaydg6lluvlm"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_btife"]
 [ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_0bie8"]
 [ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="3_xl8x5"]
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_vjqee"]
+[ext_resource type="PackedScene" uid="uid://dfrn7ivy8mvdj" path="res://src/ui/ui_dialog.tscn" id="5_unwo2"]
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_0da5s"]
-[ext_resource type="Script" path="res://src/level/save.gd" id="6_doo0s"]
 
 [sub_resource type="Environment" id="Environment_spnep"]
 background_mode = 1
@@ -24,44 +24,6 @@ resource_name = "platform"
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1lbo2"]
 _data = {
 "platform": SubResource("Animation_in82s")
-}
-
-[sub_resource type="Animation" id="Animation_f1bxj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui/save/Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_ae5wu"]
-resource_name = "save"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ui/save/Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.888, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyq7v"]
-_data = {
-"RESET": SubResource("Animation_f1bxj"),
-"save": SubResource("Animation_ae5wu")
 }
 
 [node name="level_0" type="Node3D"]
@@ -101,26 +63,8 @@ target_loading = "res://src/level/level_1.tscn"
 
 [node name="ui" type="CanvasLayer" parent="."]
 
+[node name="ui_dialog" parent="ui" instance=ExtResource("5_unwo2")]
+selected_index = 0
+
 [node name="ui_game" parent="ui" instance=ExtResource("6_0da5s")]
-
-[node name="save" type="Control" parent="ui"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 173.0
-offset_bottom = 40.0
-script = ExtResource("6_doo0s")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/save"]
-root_node = NodePath("../../..")
-autoplay = "save"
-libraries = {
-"": SubResource("AnimationLibrary_lyq7v")
-}
-
-[node name="Label" type="Label" parent="ui/save"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Menyimpan Otomatis...."
-visible_characters = 0
-visible_ratio = 0.0
+visible = false

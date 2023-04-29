@@ -5,8 +5,8 @@
 
 [node name="main" type="Node"]
 
-[node name="level_1" parent="." instance=ExtResource("1_4q5wm")]
+[node name="level_0" parent="." instance=ExtResource("1_4q5wm")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="level_1"]
+[node name="CanvasLayer" type="CanvasLayer" parent="level_0"]
 
-[node name="ui_menu" parent="level_1/CanvasLayer" instance=ExtResource("2_38fg8")]
+[node name="ui_menu" parent="level_0/CanvasLayer" instance=ExtResource("2_38fg8")]

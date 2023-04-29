@@ -7,12 +7,12 @@ var scene_load_status        = 0
 var scene                    = Global.next_scene
 
 func _ready():
+	var random_tip = Global.tips[randi() % Global.tips.size()]
 	ResourceLoader.load_threaded_request(scene)
 	print("Go to  %s (transition)" %scene)
 	$Label.visible = false
 	$Label2.visible = true
-	$Label3.set_text("Level 1 Highscore: %f", Global.lvl_1_highscore)
-	
+	%Label3.text = str(random_tip)
 
 func _process(delta):
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene,progress)
@@ -30,3 +30,8 @@ func _input(event):
 				queue_free()
 			else:
 				print("Scene not loaded or in progress")
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("click"):
+			print("mouse klik")
+			var random_tip = Global.tips[randi() % Global.tips.size()]
+			%Label3.text = str(random_tip)

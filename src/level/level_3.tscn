@@ -26,7 +26,7 @@ _data = {
 "platform": SubResource("Animation_in82s")
 }
 
-[node name="level_1" type="Node3D"]
+[node name="level_3" type="Node3D"]
 
 [node name="main_we" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tnbjl")
@@ -65,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.773, -7.78249, -0.875251)
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="ui_game" parent="ui" instance=ExtResource("5_b4ljj")]
-level_index = 1
+level_index = 3
 
 [connection signal="ballin" from="arena/finish_point" to="arena/fall_area" method="_on_finish_point_ballin"]
 [connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]

@@ -13,6 +13,49 @@ var lvl_3_highscore : float = 0.0
 var lvl_4_highscore : float = 0.0
 var timer
 
+var tips = [
+"Tekan Esc untuk Berhenti dan menikmati rumput hijau", 
+"Semua suara yang dipakai di gim adalah suara pembuatnya sendiri!", 
+"Jangan ragu untuk terjun keluar peta", "3D asset di Tono merupakan barang kamar sang pembuat gim ini!",
+"Terinspirasi dari masalah iklim!",
+"Membuang sampah di tempatnya",
+"100% GRATIS"
+]
+
+##DIALOG
+var level_0 = (
+	'
+	Tekan tombol Panah untuk bergerak
+	Tekan tombol Esc untuk berhenti sementara
+	Selamat bermain!'
+)
+
+
+var level_1 = (
+	'
+	Manusia bertugas untuk menjaga, mengelola, dan melestarikan Bumi
+	Manusia juga suka berkreasi, membuat sesuatu dengan imajinasi tanpa batas\n
+	Aku Tono, anak bumi, tujuanku sederhana
+	Mengejar bendera'
+)
+var level_2 = [
+	"Usaha manusia sekuat dengan ambisi mereka",
+	"Membangun rumah dan transportasi contohnya",
+]
+
+var level_3 = [
+	"Lihat itu, mereka membangun peradaban",
+	"Hahaha,",
+	"Kota yang besar"
+]
+var level_4 = [
+	"Wah, salju",
+	"Sudah lama sekali aku tidak melihat salju di tempat ini!"
+]
+var level_5 = [
+	"Hanya ada air disini",
+	"Kukira ini tempat yang sama"
+]
 #game signal___________________
 
 

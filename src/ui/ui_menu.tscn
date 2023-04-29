@@ -125,6 +125,11 @@ layout_mode = 2
 text = "Level 4
 "
 
+[node name="back" type="Button" parent="level/VBoxContainer"]
+layout_mode = 2
+text = "Kembali
+"
+
 [node name="credits" type="Control" parent="."]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
@@ -165,9 +170,9 @@ theme = ExtResource("1_ubidy")
 [node name="delete_save_file" type="Button" parent="settings/TextureRect"]
 layout_mode = 0
 offset_left = 37.0
-offset_top = 186.0
-offset_right = 176.0
-offset_bottom = 217.0
+offset_top = 150.0
+offset_right = 271.0
+offset_bottom = 181.0
 text = "Hapus Simpanan"
 
 [node name="TextureRect" type="TextureRect" parent="settings/TextureRect"]
@@ -201,6 +206,14 @@ text = "Yakin"
 
 [node name="back" type="Button" parent="settings/TextureRect/TextureRect/VBoxContainer"]
 layout_mode = 2
+text = "Kembali
+"
+
+[node name="back" type="Button" parent="settings"]
+offset_left = 37.0
+offset_top = 214.0
+offset_right = 108.0
+offset_bottom = 245.0
 text = "Kembali
 "
 
@@ -254,12 +267,16 @@ text = "Keluar"
 [connection signal="pressed" from="level/VBoxContainer/level_3" to="." method="_on_level_3_pressed"]
 [connection signal="mouse_entered" from="level/VBoxContainer/level_4" to="." method="_on_level_4_mouse_entered"]
 [connection signal="pressed" from="level/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="mouse_entered" from="level/VBoxContainer/back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="level/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="focus_entered" from="settings/TextureRect/delete_save_file" to="." method="_on_delete_save_file_focus_entered"]
 [connection signal="pressed" from="settings/TextureRect/delete_save_file" to="." method="_on_delete_save_file_pressed"]
 [connection signal="mouse_entered" from="settings/TextureRect/TextureRect/VBoxContainer/delete_confirm" to="." method="_on_delete_confirm_mouse_entered"]
 [connection signal="pressed" from="settings/TextureRect/TextureRect/VBoxContainer/delete_confirm" to="." method="_on_delete_confirm_pressed"]
 [connection signal="mouse_entered" from="settings/TextureRect/TextureRect/VBoxContainer/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="settings/TextureRect/TextureRect/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="settings/back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="settings/back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="quit/VBoxContainer/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="quit/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="quit/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]

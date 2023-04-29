@@ -60,7 +60,7 @@ libraries = {
 
 [node name="finish_point" parent="arena" instance=ExtResource("6_f4rs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -5.90189, 5.87368)
-target_loading = "res://src/ui/ui_menu.tscn"
+target_loading = "res://src/level/level_2.tscn"
 
 [node name="maze" parent="arena" instance=ExtResource("4_kvrj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.12175, 0)
@@ -69,8 +69,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.12175, 0)
 
 [node name="ui_game" parent="ui" instance=ExtResource("5_dgfdr")]
 level_index = 1
-
-[node name="LightmapGI" type="LightmapGI" parent="."]
 
 [connection signal="ballin" from="arena/finish_point" to="arena/board/fall_area" method="_on_finish_point_ballin"]
 [connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]

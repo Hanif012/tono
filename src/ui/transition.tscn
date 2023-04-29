@@ -149,7 +149,10 @@ grow_vertical = 2
 text = "Loading"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 557.0
-offset_top = 188.0
-offset_right = 718.0
-offset_bottom = 278.0
+unique_name_in_owner = true
+offset_left = 74.0
+offset_top = 218.0
+offset_right = 1214.0
+offset_bottom = 308.0
+text = "orem ipsum dolor sit amet"
+horizontal_alignment = 1
