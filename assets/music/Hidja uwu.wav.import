@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dktr4hm8w8sah"
+path="res://.godot/imported/Hidja uwu.wav-624f9b5d128853d1ae7419e5e804a0ca.sample"
+
+[deps]
+
+source_file="res://assets/music/Hidja uwu.wav"
+dest_files=["res://.godot/imported/Hidja uwu.wav-624f9b5d128853d1ae7419e5e804a0ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var progress_bar:ProgressBar = $ProgressBar
+@onready var progress_bar:ProgressBar = %ProgressBar
 
 var progress                 = []
 var scene_load_status        = 0

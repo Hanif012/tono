@@ -3,10 +3,11 @@ extends Node
 #game system___________________
 var pause     : bool     = false
 var next_scene: String
-var level     : int      = 1
+var level     : int      = 0
 var data
 
 #game var______________________
+var lvl_0_highscore : float = 0.0
 var lvl_1_highscore : float = 0.0
 var lvl_2_highscore : float = 0.0
 var lvl_3_highscore : float = 0.0
@@ -67,22 +68,27 @@ var level_5 = [
 ###Functions################################
 ############################################
 func update_highscore(score: float, level_index: int):
-	if level == 1:
+	if level_index == 0:
+		if score > lvl_0_highscore:
+			lvl_0_highscore = score
+			print("update score lvl 0")
+	if level_index == 1:
 		if score > lvl_1_highscore:
 			lvl_1_highscore = score
 			print("update score lvl 1")
-	if level == 2:
+	if level_index == 2:
 		if score > lvl_2_highscore:
-			lvl_1_highscore = score
+			lvl_2_highscore = score
 			print("update score lvl 2")
-	if level == 3:
+	if level_index == 3:
 		if score > lvl_3_highscore:
-			lvl_1_highscore = score
+			lvl_3_highscore = score
 			print("update score lvl 3")
-	if level == 4:
+	if level_index == 4:
 		if score > lvl_4_highscore:
-			lvl_1_highscore = score
+			lvl_4_highscore = score
 			print("update score lvl 4")
+	save()
 
 #TreeMancer
 func restart_level():
@@ -97,22 +103,25 @@ func loading(target):
 	add_child(instance)
 
 #music_________________________
+func audio_music_clock():
+	$music/clock.play()
 func audio_music_menu():
 	$music/menu.play()
+func audio_rempah():
+	$music/rempah.play()
 
+#sfx
 func audio_click_ui():
 	$sfx/click.play()
-	
 func audio_hover_ui():
-#	$sfx/hover.
 	$sfx/hover.play()
-	
 func audio_squick():
 	$sfx/squick.play()
 	
 func save() -> void:
 	data = {
 		"level"                : level,
+		"lvl_0_highscore"      : lvl_0_highscore,
 		"lvl_1_highscore"      : lvl_1_highscore,
 		"lvl_2_highscore"      : lvl_2_highscore,
 		"lvl_3_highscore"      : lvl_3_highscore,
@@ -123,17 +132,31 @@ func save() -> void:
 	var json = JSON.stringify(data)
 	save_game.store_line(json)
 	save_game.close()
+	print("save:\n %s" %data)
 
 func load() -> void:
 	var save_game = FileAccess.open("user://savegame.json", FileAccess.READ)
 	if save_game.file_exists("user://savegame.json"):
 		data = JSON.parse_string(save_game.get_as_text())
 		save_game.close()
+		
+		level            = data.level
+		lvl_0_highscore  = data.lvl_0_highscore
+		lvl_1_highscore  = data.lvl_1_highscore
+		lvl_2_highscore  = data.lvl_2_highscore
+		lvl_3_highscore  = data.lvl_3_highscore
+		lvl_4_highscore  = data.lvl_4_highscore
+		print("file is loaded %s" %data)
+		print(lvl_0_highscore)
+	else:
+		print("somting wong %s" %data)
 
 func reset() -> void:
-	level            = 1
+	level            = 0
+	lvl_0_highscore  = 0.0
 	lvl_1_highscore  = 0.0
 	lvl_2_highscore  = 0.0
 	lvl_3_highscore  = 0.0
 	lvl_4_highscore  = 0.0
 	save()
+	print("reset")

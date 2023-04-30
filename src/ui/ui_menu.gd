@@ -13,7 +13,16 @@ func _ready():
 	_menu(level, false)
 	_menu(quit, false)
 	$settings/TextureRect/TextureRect.visible = false
-
+	Global.audio_music_clock()
+	Global.audio_rempah()
+	print(Global.lvl_1_highscore)
+	
+	%lvl0_hg.text = str(str(Global.lvl_0_highscore).pad_decimals(1) + "s")
+	%lvl1_hg.text = str(str(Global.lvl_1_highscore).pad_decimals(1) + "s")
+	%lvl2_hg.text = str(str(Global.lvl_2_highscore).pad_decimals(1) + "s")  
+	%lvl3_hg.text = str(str(Global.lvl_3_highscore).pad_decimals(1) + "s") 
+	%lvl4_hg.text = str(str(Global.lvl_4_highscore).pad_decimals(1) + "s") 
+	
 func _on_back_pressed():
 	click_sfx()
 	_menu(main, true)
@@ -49,8 +58,8 @@ func _on_settings_button_pressed():
 
 func _on_credits_button_pressed():
 	click_sfx()
-	pass # Replace with function body.
-
+	_menu(credits, true)
+	_menu(main, false)
 
 func _on_quit_button_pressed():
 	click_sfx()
@@ -61,6 +70,13 @@ func _on_quit_pressed():
 	click_sfx()
 	get_tree().quit()
 
+func _on_level_0_pressed():
+	click_sfx()
+	_menu(main, false)
+	_menu(credits, false)
+	_menu(settings, false)
+	_menu(level, false)
+	_menu(quit, false)
 
 func _on_level_1_pressed():
 	click_sfx()
@@ -119,3 +135,4 @@ func _on_settings_button_mouse_entered():
 	Global.audio_hover_ui()
 func _on_play_button_mouse_entered():
 	Global.audio_hover_ui()
+

@@ -100,6 +100,7 @@ grow_vertical = 2
 color = Color(0.188235, 0.356863, 0.380392, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

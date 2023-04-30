@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2b3105peo7tj"]
+[gd_scene load_steps=8 format=3 uid="uid://c2b3105peo7tj"]
 
 [ext_resource type="Script" path="res://src/autoload/Global.gd" id="1_xsu3a"]
 [ext_resource type="AudioStream" uid="uid://h5qx7hrys6v8" path="res://assets/music/Kipas.ogg" id="2_b376e"]
 [ext_resource type="AudioStream" uid="uid://c8cenik2v2egp" path="res://assets/music/click.ogg" id="3_81qlg"]
+[ext_resource type="AudioStream" uid="uid://dktr4hm8w8sah" path="res://assets/music/Hidja uwu.wav" id="3_bedu4"]
+[ext_resource type="AudioStream" uid="uid://clyr5ly8l38on" path="res://assets/music/rempah.wav" id="4_up5oe"]
 [ext_resource type="AudioStream" uid="uid://7dnsrmh66t6b" path="res://assets/music/hover.ogg" id="4_w8feb"]
 [ext_resource type="AudioStream" uid="uid://bacwjj1pq4jsk" path="res://assets/music/squick.ogg" id="5_hkp1b"]
 
@@ -12,9 +14,19 @@ script = ExtResource("1_xsu3a")
 
 [node name="music" type="Node" parent="."]
 
-[node name="menu" type="AudioStreamPlayer" parent="music"]
+[node name="clock" type="AudioStreamPlayer" parent="music"]
 stream = ExtResource("2_b376e")
 volume_db = 10.0
+bus = &"Music"
+
+[node name="menu" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("3_bedu4")
+volume_db = 2.382
+bus = &"Music"
+
+[node name="rempah" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("4_up5oe")
+volume_db = 2.382
 bus = &"Music"
 
 [node name="sfx" type="Node" parent="."]

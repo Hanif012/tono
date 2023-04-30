@@ -64,7 +64,9 @@ target_loading = "res://src/level/level_1.tscn"
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="ui_dialog" parent="ui" instance=ExtResource("5_unwo2")]
+visible = false
 selected_index = 0
 
 [node name="ui_game" parent="ui" instance=ExtResource("6_0da5s")]
-visible = false
+
+[connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]

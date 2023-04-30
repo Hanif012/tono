@@ -1,13 +1,17 @@
 extends Control
-@export var level_index    = 0
-@onready var timer_display = $timer/timer_label
-@onready var anim_player = $AnimationPlayer
-@onready var ui_pause = $pause
+@export var level_index: int   = 0
+@onready var timer_display     = $timer/timer_label
+@onready var anim_player       = $AnimationPlayer
+@onready var ui_pause          = $pause
 var timer = 0.0
 
 func _ready():
 	ui_pause.visible = false
-
+#	var audio = {
+#		0:Global
+#	}
+#	audio(level_index)
+#
 func _process(delta):
 	timer += delta
 	timer_display.text = get_timer_str()
@@ -27,4 +31,5 @@ func _input(event):
 
 func _on_finish_point_ballin():
 	Global.update_highscore(timer, level_index)
+	print("update highscore %.2f %d" % [timer, level_index])
 	
