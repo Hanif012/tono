@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdfcw7awvugb6"]
+
+[ext_resource type="Material" uid="uid://d12en5v5it1li" path="res://assets/resource/blur.tres" id="1_5q808"]
+[ext_resource type="Script" path="res://src/ui/ui_highscore.gd" id="2_0mrud"]
+
+[node name="ui_highscore" type="ColorRect"]
+material = ExtResource("1_5q808")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0mrud")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -43.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="currenct_score" type="Label" parent="HBoxContainer/name"]
+layout_mode = 2
+text = "Waktu "
+
+[node name="best_score" type="Label" parent="HBoxContainer/name"]
+layout_mode = 2
+text = "Waktu terbaik"
+
+[node name="rank" type="Label" parent="HBoxContainer/name"]
+layout_mode = 2
+text = "Ranking"
+
+[node name="titik_dua" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="currenct_score" type="Label" parent="HBoxContainer/titik_dua"]
+layout_mode = 2
+text = ":"
+
+[node name="best_score" type="Label" parent="HBoxContainer/titik_dua"]
+layout_mode = 2
+text = ":"
+
+[node name="rank" type="Label" parent="HBoxContainer/titik_dua"]
+layout_mode = 2
+text = ":"
+
+[node name="var" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="currenct_score" type="Label" parent="HBoxContainer/var"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "timer"
+
+[node name="best_score" type="Label" parent="HBoxContainer/var"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "global.lvl_higscore"
+
+[node name="rank" type="Label" parent="HBoxContainer/var"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rank name"

@@ -21,7 +21,7 @@ func _on_resume_pressed():
 
 func _on_menu_pressed():
 	click_sfx()
-	Global.loading("res://src/ui/ui_menu.tscn")
+	Global.loading("res://main.tscn")
 	_on_resume_pressed()
 
 

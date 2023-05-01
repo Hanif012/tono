@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqwne7ni1k128"]
+[gd_scene load_steps=18 format=3 uid="uid://cqwne7ni1k128"]
 
 [ext_resource type="Script" path="res://src/level/finish_point.gd" id="1_261b1"]
 [ext_resource type="Material" uid="uid://hoosu7um7ixg" path="res://assets/resource/glow.tres" id="2_gna6p"]
@@ -18,6 +18,15 @@ rings = 10
 [sub_resource type="TorusMesh" id="TorusMesh_r51q3"]
 inner_radius = 0.6
 outer_radius = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g38ce"]
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_co8ca"]
+material = SubResource("StandardMaterial3D_g38ce")
+size = Vector2(1, 2)
+subdivide_width = 10
+subdivide_depth = 10
 
 [sub_resource type="SphereMesh" id="SphereMesh_bxfp6"]
 
@@ -58,6 +67,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("finish/node:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.651076, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_25ax5"]
@@ -113,6 +134,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("finish/node:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0.651076, 0), Vector3(0, 3.67372, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7l3ee"]
 resource_name = "start"
@@ -146,13 +179,14 @@ animation = &"start"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_55ft4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7k3py"]
+graph_offset = Vector2(-116.989, -41.3536)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_12kxo")
 nodes/Animation/position = Vector2(40, 60)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_7am18")
-"nodes/Animation 2/position" = Vector2(40, 180)
+"nodes/Animation 2/position" = Vector2(40, 262)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_55ft4")
-nodes/Blend2/position = Vector2(240, 80)
-nodes/output/position = Vector2(500, 80)
+nodes/Blend2/position = Vector2(272, 31)
+nodes/output/position = Vector2(499, 30)
 node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2"]
 
 [node name="finish_point" type="Area3D"]
@@ -190,6 +224,22 @@ surface_material_override/0 = ExtResource("2_gna6p")
 
 [node name="finish" parent="." instance=ExtResource("3_40aly")]
 
+[node name="node" type="Node3D" parent="finish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.651076, 0)
+
+[node name="SoftBody3D" type="SoftBody3D" parent="finish/node"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 1.29493)
+mesh = SubResource("PlaneMesh_co8ca")
+simulation_precision = 20
+total_mass = 0.01
+pinned_points = [132, 143]
+attachments/0/point_index = 132
+attachments/0/spatial_attachment_path = NodePath("")
+attachments/0/offset = Vector3(0, 0, 0)
+attachments/1/point_index = 143
+attachments/1/spatial_attachment_path = NodePath("")
+attachments/1/offset = Vector3(0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28964, 0)
 visible = false
@@ -212,3 +262,5 @@ active = true
 parameters/Blend2/blend_amount = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="finish"]

@@ -11,3 +11,4 @@ func _on_body_entered(body):
 
 func _on_finish_point_ballin():
 	touchdown = true
+	

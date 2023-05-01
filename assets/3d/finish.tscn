@@ -1,13 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://53exf7jtigv5"]
+[gd_scene load_steps=6 format=3 uid="uid://53exf7jtigv5"]
 
 [ext_resource type="Texture2D" uid="uid://typwwervresc" path="res://assets/blender/finish_IMG-20230425-WA0007.png" id="1_yswt0"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h6yh3"]
-subdivide_width = 8
-subdivide_depth = 8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4f5a"]
-cull_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rchpa"]
 resource_name = "Material"
@@ -51,44 +44,6 @@ shadow_mesh = SubResource("ArrayMesh_630xo")
 data = PackedVector3Array(1, -0.1261, 1, -1, 0, 1, 1, 0, 1, 1, -0.1261, 1, -1, -0.1261, 1, -1, 0, 1, -1, -0.1261, 1, -1, 0, -1, -1, 0, 1, -1, -0.1261, 1, -1, -0.1261, -1, -1, 0, -1, -1, -0.1261, -1, 1, -0.1261, 1, 1, -0.1261, -1, -1, -0.1261, -1, -1, -0.1261, 1, 1, -0.1261, 1, 1, -0.1261, -1, 1, 0, 1, 1, 0, -1, 1, -0.1261, -1, 1, -0.1261, 1, 1, 0, 1, -1, -0.1261, -1, 1, 0, -1, -1, 0, -1, -1, -0.1261, -1, 1, -0.1261, -1, 1, 0, -1, 0.1576, 0, 0.1576, -1, 0, 1, -0.1576, 0, 0.1576, 0.1576, 0, 0.1576, 1, 0, 1, -1, 0, 1, 0.1576, 0, -0.1576, 1, 0, 1, 0.1576, 0, 0.1576, 0.1576, 0, -0.1576, 1, 0, -1, 1, 0, 1, -0.1576, 0, 0.1576, -1, 0, -1, -0.1576, 0, -0.1576, -0.1576, 0, 0.1576, -1, 0, 1, -1, 0, -1, -0.1576, 0, -0.1576, 1, 0, -1, 0.1576, 0, -0.1576, -0.1576, 0, -0.1576, -1, 0, -1, 1, 0, -1, 0.1576, 3.0666, 0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 3.0666, -0.1576, 0.1576, 3.0666, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.2463, -0.1576, -0.1576, 3.0666, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 3.0666, 0.1576, -0.1576, 3.0666, 0.1576, -0.1576, 4.2463, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 3.0666, -0.1576, -0.1576, 4.2463, -0.1576, -0.1576, 3.0666, -0.1576, 0.1576, 3.0666, -0.1576, 0.1576, 4.2463, -0.1576, -0.1576, 4.2463, -0.1576, -0.1576, 3.0666, -0.1576, -0.1576, 4.2463, 0.1576, -0.1576, 3.0666, 0.1576, -0.1576, 3.0666, -0.1576, -0.1576, 4.2463, -0.1576, -0.1576, 4.2463, 0.1576, 0.1576, 0, 0.1576, 0.1576, 3.0666, -0.1576, 0.1576, 0, -0.1576, 0.1576, 0, 0.1576, 0.1576, 3.0666, 0.1576, 0.1576, 3.0666, -0.1576, 0.1576, 0, -0.1576, -0.1576, 3.0666, -0.1576, -0.1576, 0, -0.1576, 0.1576, 0, -0.1576, 0.1576, 3.0666, -0.1576, -0.1576, 3.0666, -0.1576, -0.1576, 0, 0.1576, 0.1576, 3.0666, 0.1576, 0.1576, 0, 0.1576, -0.1576, 0, 0.1576, -0.1576, 3.0666, 0.1576, 0.1576, 3.0666, 0.1576, -0.1576, 0, -0.1576, -0.1576, 3.0666, 0.1576, -0.1576, 0, 0.1576, -0.1576, 0, -0.1576, -0.1576, 3.0666, -0.1576, -0.1576, 3.0666, 0.1576, -0.1576, 4.2463, -0.1576, -0.1576, 4.3364, 0.1576, -0.1576, 4.2463, 0.1576, -0.1576, 4.2463, -0.1576, -0.1576, 4.3364, -0.1576, -0.1576, 4.3364, 0.1576, 0.1576, 4.3364, -0.1576, -0.1576, 4.3364, 0.1576, -0.1576, 4.3364, -0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, 0.1576, -0.1576, 4.3364, 0.1576, -0.1576, 4.2463, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.2463, 0.1576, -0.1576, 4.2463, 0.1576, -0.1576, 4.3364, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.2463, -0.1576, -0.1576, 4.3364, -0.1576, -0.1576, 4.2463, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.3364, -0.1576, -0.1576, 4.3364, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.3364, -0.1576, 0.1576, 4.3364, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.2463, -0.1576, 0.1576, 4.2463, 0.1576, 0.1576, 4.2463, -0.1576)
 
 [node name="finish" type="Node3D"]
-
-[node name="SoftBody3D" type="SoftBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 3.19685, -1.03773)
-mesh = SubResource("PlaneMesh_h6yh3")
-surface_material_override/0 = SubResource("StandardMaterial3D_m4f5a")
-parent_collision_ignore = NodePath("../Cube/StaticBody3D")
-simulation_precision = 100
-pinned_points = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-attachments/0/point_index = 9
-attachments/0/spatial_attachment_path = NodePath("")
-attachments/0/offset = Vector3(0, 0, 0)
-attachments/1/point_index = 8
-attachments/1/spatial_attachment_path = NodePath("")
-attachments/1/offset = Vector3(0, 0, 0)
-attachments/2/point_index = 7
-attachments/2/spatial_attachment_path = NodePath("")
-attachments/2/offset = Vector3(0, 0, 0)
-attachments/3/point_index = 6
-attachments/3/spatial_attachment_path = NodePath("")
-attachments/3/offset = Vector3(0, 0, 0)
-attachments/4/point_index = 5
-attachments/4/spatial_attachment_path = NodePath("")
-attachments/4/offset = Vector3(0, 0, 0)
-attachments/5/point_index = 4
-attachments/5/spatial_attachment_path = NodePath("")
-attachments/5/offset = Vector3(0, 0, 0)
-attachments/6/point_index = 3
-attachments/6/spatial_attachment_path = NodePath("")
-attachments/6/offset = Vector3(0, 0, 0)
-attachments/7/point_index = 2
-attachments/7/spatial_attachment_path = NodePath("")
-attachments/7/offset = Vector3(0, 0, 0)
-attachments/8/point_index = 1
-attachments/8/spatial_attachment_path = NodePath("")
-attachments/8/offset = Vector3(0, 0, 0)
-attachments/9/point_index = 0
-attachments/9/spatial_attachment_path = NodePath("")
-attachments/9/offset = Vector3(0, 0, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_3vvlr")

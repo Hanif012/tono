@@ -1,5 +1,6 @@
 extends Control
 
+signal tutorial_start
 @onready var main     = $main
 @onready var credits  = $credits
 @onready var settings = $settings
@@ -37,7 +38,6 @@ func _menu(target_ui: Control, condition: bool):
 		target_ui.visible = true
 	if condition == false:
 		target_ui.visible = false
-	print(target_ui, condition)
 
 func _on_play_button_pressed():
 	click_sfx()
@@ -77,7 +77,8 @@ func _on_level_0_pressed():
 	_menu(settings, false)
 	_menu(level, false)
 	_menu(quit, false)
-
+	emit_signal("tutorial_start")
+	
 func _on_level_1_pressed():
 	click_sfx()
 	if Global.level > 0:
@@ -87,7 +88,7 @@ func _on_level_1_pressed():
 func _on_level_2_pressed():
 	click_sfx()
 	if Global.level > 1:
-		print("enter lvl 1")
+		print("enter lvl 2")
 		Global.loading("res://src/level/level_2.tscn")
 func _on_level_3_pressed():
 	click_sfx()

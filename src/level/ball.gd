@@ -3,7 +3,7 @@ extends RigidBody3D
 var force = 50
 
 func _ready():
-	pass
+	set_physics_process(false)
 	
 func _physics_process(delta):
 
@@ -19,3 +19,6 @@ func _physics_process(delta):
 		self.angular_velocity.z += force*delta
 	elif Input.is_action_pressed("ui_right"):
 		self.angular_velocity.z -= force*delta
+
+func _on_ui_game_start_game_start():
+	set_physics_process(true)

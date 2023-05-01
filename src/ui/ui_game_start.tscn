@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg0r1plccn5kp"]
+
+[ext_resource type="Material" uid="uid://d12en5v5it1li" path="res://assets/resource/blur.tres" id="1_47a8f"]
+[ext_resource type="Script" path="res://src/ui/ui_game_start.gd" id="1_65a28"]
+
+[sub_resource type="Animation" id="Animation_otki6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("counter:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["counter"]
+}
+
+[sub_resource type="Animation" id="Animation_e0ypv"]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("counter:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 1,
+"values": ["
+", "Bersedia!", "Siap!", "Mulai!"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sh5p1"]
+_data = {
+"RESET": SubResource("Animation_otki6"),
+"start": SubResource("Animation_e0ypv")
+}
+
+[node name="ui_game_start" type="ColorRect"]
+material = ExtResource("1_47a8f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65a28")
+
+[node name="level" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -13.0
+offset_right = 50.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "current_level"
+horizontal_alignment = 1
+
+[node name="counter" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 13.0
+offset_right = 20.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "counter"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_sh5p1")
+}

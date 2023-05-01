@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciaydg6lluvlm"]
+[gd_scene load_steps=11 format=3 uid="uid://ciaydg6lluvlm"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_btife"]
 [ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_0bie8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_vjqee"]
 [ext_resource type="PackedScene" uid="uid://dfrn7ivy8mvdj" path="res://src/ui/ui_dialog.tscn" id="5_unwo2"]
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_0da5s"]
+[ext_resource type="PackedScene" uid="uid://cg0r1plccn5kp" path="res://src/ui/ui_game_start.tscn" id="7_ncx52"]
 
 [sub_resource type="Environment" id="Environment_spnep"]
 background_mode = 1
@@ -64,9 +65,14 @@ target_loading = "res://src/level/level_1.tscn"
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="ui_dialog" parent="ui" instance=ExtResource("5_unwo2")]
-visible = false
 selected_index = 0
 
 [node name="ui_game" parent="ui" instance=ExtResource("6_0da5s")]
 
+[node name="ui_game_start" parent="ui" instance=ExtResource("7_ncx52")]
+
 [connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]
+[connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start"]
+[connection signal="game_start" from="ui/ui_game_start" to="ui/ui_game" method="_on_ui_game_start_game_start"]
+
+[editable path="player"]
