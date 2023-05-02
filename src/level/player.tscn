@@ -42,3 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 
 projection = 1
 current = true
 size = 10.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true

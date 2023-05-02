@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciaydg6lluvlm"]
+[gd_scene load_steps=11 format=3 uid="uid://io7i7061scrj"]
 
-[ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_btife"]
-[ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_0bie8"]
-[ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="3_xl8x5"]
-[ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_vjqee"]
-[ext_resource type="PackedScene" uid="uid://dfrn7ivy8mvdj" path="res://src/ui/ui_dialog.tscn" id="5_unwo2"]
-[ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_0da5s"]
-[ext_resource type="PackedScene" uid="uid://cg0r1plccn5kp" path="res://src/ui/ui_game_start.tscn" id="7_ncx52"]
+[ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_k36to"]
+[ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="2_a7gpj"]
+[ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="3_jigtp"]
+[ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_qm2m3"]
+[ext_resource type="PackedScene" uid="uid://dfrn7ivy8mvdj" path="res://src/ui/ui_dialog.tscn" id="5_7aqil"]
+[ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_vnoy7"]
+[ext_resource type="PackedScene" uid="uid://cg0r1plccn5kp" path="res://src/ui/ui_game_start.tscn" id="7_j7yti"]
 
 [sub_resource type="Environment" id="Environment_spnep"]
 background_mode = 1
@@ -33,24 +33,24 @@ _data = {
 environment = SubResource("Environment_spnep")
 
 [node name="sorot3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.909564, -0.359889, 0.207781, 0, 0.499998, 0.866026, -0.415563, -0.787707, 0.454781, 0, 5.80089, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_color = Color(0.956863, 0.964706, 0.898039, 1)
 shadow_enabled = true
 directional_shadow_mode = 1
 directional_shadow_split_1 = 0.01
 sky_mode = 1
 
-[node name="player" parent="." instance=ExtResource("1_btife")]
+[node name="player" parent="." instance=ExtResource("1_k36to")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5107, 4.8042, -2.54744)
 
 [node name="arena" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
 
-[node name="fall_area" parent="arena" instance=ExtResource("3_xl8x5")]
+[node name="fall_area" parent="arena" instance=ExtResource("2_a7gpj")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -10.2582, 0)
 linear_damp = 0.0
 
-[node name="board" parent="arena" instance=ExtResource("2_0bie8")]
+[node name="board" parent="arena" instance=ExtResource("3_jigtp")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.78783, -8.03717, -0.321887)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="arena"]
@@ -58,18 +58,18 @@ libraries = {
 "": SubResource("AnimationLibrary_1lbo2")
 }
 
-[node name="finish_point" parent="arena" instance=ExtResource("4_vjqee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -8.04688, 5.87368)
+[node name="finish_point" parent="arena" instance=ExtResource("4_qm2m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -7.94589, 5.87368)
 target_loading = "res://src/level/level_1.tscn"
 
 [node name="ui" type="CanvasLayer" parent="."]
 
-[node name="ui_game" parent="ui" instance=ExtResource("6_0da5s")]
-
-[node name="ui_dialog" parent="ui" instance=ExtResource("5_unwo2")]
+[node name="ui_dialog" parent="ui" instance=ExtResource("5_7aqil")]
 selected_index = 0
 
-[node name="ui_game_start" parent="ui" instance=ExtResource("7_ncx52")]
+[node name="ui_game" parent="ui" instance=ExtResource("6_vnoy7")]
+
+[node name="ui_game_start" parent="ui" instance=ExtResource("7_j7yti")]
 
 [connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]
 [connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start"]

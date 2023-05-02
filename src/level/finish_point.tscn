@@ -1,161 +1,62 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqwne7ni1k128"]
+[gd_scene load_steps=8 format=3 uid="uid://cqwne7ni1k128"]
 
 [ext_resource type="Script" path="res://src/level/finish_point.gd" id="1_261b1"]
-[ext_resource type="Material" uid="uid://hoosu7um7ixg" path="res://assets/resource/glow.tres" id="2_gna6p"]
-[ext_resource type="PackedScene" uid="uid://53exf7jtigv5" path="res://assets/3d/finish.tscn" id="3_40aly"]
+[ext_resource type="PackedScene" uid="uid://dcxrbu5i17lrs" path="res://assets/3d/finish_flag.tscn" id="2_0qje4"]
+[ext_resource type="AudioStream" uid="uid://dxscs0aaldjep" path="res://assets/music/finish.wav" id="3_63ydk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i8b8j"]
 height = 1.0
-radius = 0.729541
+radius = 0.497786
 
-[sub_resource type="SphereMesh" id="SphereMesh_ogjrt"]
-material = ExtResource("2_gna6p")
-radius = 0.1
-height = 0.2
-radial_segments = 10
-rings = 10
+[sub_resource type="Animation" id="Animation_y4acb"]
+resource_name = "finish"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("finish_flag/Plane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.205732, 0.167734, 0), Vector3(0.205732, 1.09183, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 2.2458,
+"start_offset": 0.0,
+"stream": ExtResource("3_63ydk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
-[sub_resource type="TorusMesh" id="TorusMesh_r51q3"]
-inner_radius = 0.6
-outer_radius = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g38ce"]
-cull_mode = 2
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_co8ca"]
-material = SubResource("StandardMaterial3D_g38ce")
-size = Vector2(1, 2)
-subdivide_width = 10
-subdivide_depth = 10
-
-[sub_resource type="SphereMesh" id="SphereMesh_bxfp6"]
-
-[sub_resource type="Animation" id="Animation_kboqa"]
+[sub_resource type="Animation" id="Animation_ruf8o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/path = NodePath("finish_flag/Plane:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.28964, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D/OmniLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.957]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance3D2:surface_material_override/0:emission")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("finish/node:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.651076, 0)]
+"values": [Vector3(0.205732, 0.167734, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_25ax5"]
-resource_name = "finish"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
-"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
-"update": 0,
-"values": [Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 2, 0), Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 2, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"load_next_scene"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance3D/OmniLight3D:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.7, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [3.957, 5.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MeshInstance3D2:surface_material_override/0:emission")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("finish/node:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 0.651076, 0), Vector3(0, 3.67372, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_7l3ee"]
-resource_name = "start"
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0kgjq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xr4vb"]
 _data = {
-"RESET": SubResource("Animation_kboqa"),
-"finish": SubResource("Animation_25ax5"),
-"start": SubResource("Animation_7l3ee")
+"RESET": SubResource("Animation_ruf8o"),
+"finish": SubResource("Animation_y4acb")
 }
 
 [node name="finish_point" type="Area3D"]
@@ -167,62 +68,20 @@ script = ExtResource("1_261b1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545476, 0)
 shape = SubResource("CylinderShape3D_i8b8j")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-visible = false
-amount = 18
-preprocess = 50.0
-fixed_fps = 30
-mesh = SubResource("SphereMesh_ogjrt")
-emission_shape = 3
-emission_box_extents = Vector3(0.4, 0.1, 0.4)
-gravity = Vector3(0, 9.8, 0)
+[node name="finish_flag" parent="." instance=ExtResource("2_0qje4")]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833764, 0)
-mesh = SubResource("TorusMesh_r51q3")
-surface_material_override/0 = ExtResource("2_gna6p")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679456, 0)
-mesh = SubResource("TorusMesh_r51q3")
-surface_material_override/0 = ExtResource("2_gna6p")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-mesh = SubResource("TorusMesh_r51q3")
-surface_material_override/0 = ExtResource("2_gna6p")
-
-[node name="finish" parent="." instance=ExtResource("3_40aly")]
-
-[node name="node" type="Node3D" parent="finish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.651076, 0)
-
-[node name="SoftBody3D" type="SoftBody3D" parent="finish/node"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 1.29493)
-mesh = SubResource("PlaneMesh_co8ca")
-simulation_precision = 20
-total_mass = 0.01
-pinned_points = [132, 143]
-attachments/0/point_index = 132
-attachments/0/spatial_attachment_path = NodePath("")
-attachments/0/offset = Vector3(0, 0, 0)
-attachments/1/point_index = 143
-attachments/1/spatial_attachment_path = NodePath("")
-attachments/1/offset = Vector3(0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28964, 0)
-visible = false
-mesh = SubResource("SphereMesh_bxfp6")
-surface_material_override/0 = ExtResource("2_gna6p")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
-light_energy = 3.957
+[node name="Plane" parent="finish_flag" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.205732, 0.167734, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 libraries = {
-"": SubResource("AnimationLibrary_0kgjq")
+"": SubResource("AnimationLibrary_xr4vb")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
-[editable path="finish"]
+[editable path="finish_flag"]
