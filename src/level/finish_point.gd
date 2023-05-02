@@ -5,7 +5,7 @@ signal ballin
 @export var target_loading : String
 
 func _on_body_entered(body):
-	$AnimationTree.set("parameters/Blend2/blend_amount", 1.0)
+	$AnimationPlayer.play("finish")
 	emit_signal("ballin")
 	
 func load_next_scene():

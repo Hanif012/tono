@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqwne7ni1k128"]
+[gd_scene load_steps=14 format=3 uid="uid://cqwne7ni1k128"]
 
 [ext_resource type="Script" path="res://src/level/finish_point.gd" id="1_261b1"]
 [ext_resource type="Material" uid="uid://hoosu7um7ixg" path="res://assets/resource/glow.tres" id="2_gna6p"]
@@ -150,18 +150,6 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_7l3ee"]
 resource_name = "start"
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector3(0, 1.28964, 0), Vector3(0, 1, 0), Vector3(0, 1.28964, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0kgjq"]
 _data = {
@@ -169,25 +157,6 @@ _data = {
 "finish": SubResource("Animation_25ax5"),
 "start": SubResource("Animation_7l3ee")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7am18"]
-animation = &"finish"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12kxo"]
-animation = &"start"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_55ft4"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7k3py"]
-graph_offset = Vector2(-116.989, -41.3536)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_12kxo")
-nodes/Animation/position = Vector2(40, 60)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_7am18")
-"nodes/Animation 2/position" = Vector2(40, 262)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_55ft4")
-nodes/Blend2/position = Vector2(272, 31)
-nodes/output/position = Vector2(499, 30)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2"]
 
 [node name="finish_point" type="Area3D"]
 collision_layer = 2
@@ -250,16 +219,9 @@ surface_material_override/0 = ExtResource("2_gna6p")
 light_energy = 3.957
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "start"
 libraries = {
 "": SubResource("AnimationLibrary_0kgjq")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_7k3py")
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/Blend2/blend_amount = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

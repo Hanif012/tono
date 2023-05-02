@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2vbsespsqvx2"]
+[gd_scene load_steps=11 format=3 uid="uid://d2vbsespsqvx2"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_7tiko"]
 [ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="2_dxxmb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="5_dgfdr"]
 [ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="6_ey3ac"]
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="6_f4rs5"]
+[ext_resource type="PackedScene" uid="uid://cg0r1plccn5kp" path="res://src/ui/ui_game_start.tscn" id="7_ioyjt"]
 
 [sub_resource type="Environment" id="Environment_spnep"]
 background_mode = 1
@@ -70,5 +71,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.12175, 0)
 [node name="ui_game" parent="ui" instance=ExtResource("5_dgfdr")]
 level_index = 1
 
+[node name="ui_game_start" parent="ui" instance=ExtResource("7_ioyjt")]
+offset_left = 26.48
+offset_top = -273.314
+offset_right = 26.48
+offset_bottom = -273.314
+
 [connection signal="ballin" from="arena/finish_point" to="arena/board/fall_area" method="_on_finish_point_ballin"]
 [connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]
+[connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start"]
+[connection signal="game_start" from="ui/ui_game_start" to="ui/ui_game" method="_on_ui_game_start_game_start"]
+
+[editable path="player"]

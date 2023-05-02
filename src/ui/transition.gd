@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var progress_bar:ProgressBar = %ProgressBar
 
-var progress                 = []
+var progress                 = Array(PackedFloat64Array())
 var scene_load_status        = 0
 var scene                    = Global.next_scene
 
@@ -15,7 +15,7 @@ func _ready():
 	%Label3.text = str(random_tip)
 
 func _process(delta):
-	scene_load_status = ResourceLoader.load_threaded_get_status(scene,progress)
+	scene_load_status = ResourceLoader.load_threaded_get_status(scene, progress)
 	progress_bar.value = progress[0] * 100
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED :
 		$Label.visible = true

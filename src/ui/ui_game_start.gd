@@ -13,7 +13,7 @@ var show_level = {
 }
 
 func _ready():
-	level = show_level[Global.current_level]
+	level.text = str(show_level[Global.current_level])
 
 func start():
 	emit_signal("game_start")

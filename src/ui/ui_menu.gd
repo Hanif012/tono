@@ -18,11 +18,11 @@ func _ready():
 	Global.audio_rempah()
 	print(Global.lvl_1_highscore)
 	
-	%lvl0_hg.text = str(str(Global.lvl_0_highscore).pad_decimals(1) + "s")
-	%lvl1_hg.text = str(str(Global.lvl_1_highscore).pad_decimals(1) + "s")
-	%lvl2_hg.text = str(str(Global.lvl_2_highscore).pad_decimals(1) + "s")  
-	%lvl3_hg.text = str(str(Global.lvl_3_highscore).pad_decimals(1) + "s") 
-	%lvl4_hg.text = str(str(Global.lvl_4_highscore).pad_decimals(1) + "s") 
+	%lvl0_hg.text = "" if Global.lvl_0_highscore == -1 else (str(Global.lvl_0_highscore).pad_decimals(1) + "s")
+	%lvl1_hg.text = "" if Global.lvl_1_highscore == -1 else (str(Global.lvl_1_highscore).pad_decimals(1) + "s")
+	%lvl2_hg.text = "" if Global.lvl_2_highscore == -1 else (str(Global.lvl_2_highscore).pad_decimals(1) + "s")  
+	%lvl3_hg.text = "" if Global.lvl_3_highscore == -1 else (str(Global.lvl_3_highscore).pad_decimals(1) + "s") 
+	%lvl4_hg.text = "" if Global.lvl_4_highscore == -1 else (str(Global.lvl_4_highscore).pad_decimals(1) + "s") 
 	
 func _on_back_pressed():
 	click_sfx()
