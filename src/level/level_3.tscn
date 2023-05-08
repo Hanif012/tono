@@ -1,71 +1,215 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmdcapx2ef43v"]
+[gd_scene load_steps=6 format=3 uid="uid://3ai527fv1j0k"]
 
-[ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_4aam4"]
-[ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="3_msvri"]
-[ext_resource type="PackedScene" uid="uid://w3owmksdqdgj" path="res://assets/3d/city_upgrade.tscn" id="4_8vst4"]
-[ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_sg50l"]
-[ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="5_b4ljj"]
+[ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_kqub7"]
+[ext_resource type="PackedScene" uid="uid://rxgcr6x1pvk5" path="res://assets/3d/level_3.tscn" id="2_1f7cm"]
 
-[sub_resource type="Environment" id="Environment_tnbjl"]
-background_mode = 1
-background_color = Color(0.576471, 0.717647, 0.968627, 1)
-background_energy_multiplier = 1.5
-ambient_light_source = 3
-ambient_light_color = Color(0.286275, 0.286275, 0.286275, 1)
-ambient_light_sky_contribution = 0.2
-ambient_light_energy = 16.0
-reflected_light_source = 2
-tonemap_white = 0.0
-glow_enabled = true
+[sub_resource type="Animation" id="Animation_0vany"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_3/Cube002:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2, 7, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_3/Cube001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.04, 7, -58)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("level_3/Cube004:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.96946, 7, -72)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("level_3/Cube006:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12, 7, -76.0459)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("level_3/Cube007:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.99054, 7, -86.0764)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("level_3/Cube005:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.96946, 7, -86.0764)]
+}
 
-[sub_resource type="Animation" id="Animation_in82s"]
-resource_name = "platform"
+[sub_resource type="Animation" id="Animation_artu8"]
+resource_name = "new_animation"
+length = 8.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_3/Cube002:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2, 7, -72), Vector3(-2, 7, -72), Vector3(8.03054, 7, -72), Vector3(8.03054, 7, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_3/Cube001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.03999, 7, -68.0305), Vector3(-2.03999, 7, -68.0305), Vector3(-2.04, 7, -58), Vector3(-2.04, 7, -58)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("level_3/Cube004:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.96946, 7, -72), Vector3(-5.96946, 7, -72), Vector3(-16, 7, -72), Vector3(-16, 7, -72)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("level_3/Cube006:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(12, 7, -76.0459), Vector3(12, 7, -76.0459), Vector3(12, 7, -86.0764), Vector3(12, 7, -86.0764)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("level_3/Cube007:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.04, 7, -86.0764), Vector3(-2.04, 7, -86.0764), Vector3(7.99054, 7, -86.0764), Vector3(7.99054, 7, -86.0764)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("level_3/Cube005:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-5.96946, 7, -86.0764), Vector3(-5.96946, 7, -86.0764), Vector3(-16, 7, -86.0764), Vector3(-16, 7, -86.0764)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lbo2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8nuao"]
 _data = {
-"platform": SubResource("Animation_in82s")
+"RESET": SubResource("Animation_0vany"),
+"new_animation": SubResource("Animation_artu8")
 }
 
-[node name="level_3" type="Node3D"]
+[node name="level_3" instance=ExtResource("1_kqub7")]
 
-[node name="main_we" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tnbjl")
+[node name="player" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101295, 25.278, -0.0134196)
 
-[node name="sorot3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.956863, 0.964706, 0.898039, 1)
-shadow_enabled = true
-directional_shadow_mode = 1
-directional_shadow_split_1 = 0.01
-sky_mode = 1
+[node name="fall_area" parent="arena" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -16.394, -10.2582, -82.1674)
 
-[node name="player" parent="." instance=ExtResource("1_4aam4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21273, 4.8042, -0.0504761)
+[node name="CollisionShape3D" parent="arena/board/Plane/StaticBody3D" index="0"]
+disabled = true
 
-[node name="arena" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
+[node name="finish_point" parent="arena" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7529, 11.1413, -136.227)
 
-[node name="fall_area" parent="arena" instance=ExtResource("3_msvri")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.78783, -23.0372, -0.321887)
-collision_layer = 2
-collision_mask = 2
+[node name="level_3" parent="arena" index="4" instance=ExtResource("2_1f7cm")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="arena"]
+[node name="Cube001" parent="arena/level_3" index="1"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -2.04, 7, -58)
+
+[node name="StaticBody3D" parent="arena/level_3/Cube001" index="0"]
+motion_mode = 1
+
+[node name="Cube002" parent="arena/level_3" index="2"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -2, 7, -72)
+
+[node name="Cube004" parent="arena/level_3" index="4"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -5.96946, 7, -72)
+
+[node name="Cube005" parent="arena/level_3" index="5"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -5.96946, 7, -86.0764)
+
+[node name="Cube006" parent="arena/level_3" index="6"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, 12, 7, -76.0459)
+
+[node name="Cube007" parent="arena/level_3" index="7"]
+transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, 7.99054, 7, -86.0764)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="arena" index="5"]
+autoplay = "new_animation"
+playback_process_mode = 0
 libraries = {
-"": SubResource("AnimationLibrary_1lbo2")
+"": SubResource("AnimationLibrary_8nuao")
 }
 
-[node name="finish_point" parent="arena" instance=ExtResource("4_sg50l")]
-transform = Transform3D(-1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, -1, 19.8883, -7.47666, 7.45636)
-target_loading = "res://src/ui/ui_menu.tscn"
-
-[node name="city_upgrade" parent="arena" instance=ExtResource("4_8vst4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.773, -7.78249, -0.875251)
-
-[node name="ui" type="CanvasLayer" parent="."]
-
-[node name="ui_game" parent="ui" instance=ExtResource("5_b4ljj")]
+[node name="ui_game" parent="ui" index="0"]
 level_index = 3
 
-[connection signal="ballin" from="arena/finish_point" to="arena/fall_area" method="_on_finish_point_ballin"]
-[connection signal="ballin" from="arena/finish_point" to="ui/ui_game" method="_on_finish_point_ballin"]
+[editable path="player"]
+[editable path="arena/fall_area"]
+[editable path="arena/level_3"]

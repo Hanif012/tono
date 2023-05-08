@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj6pyo8who6v1"]
+
+[ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_8d2ow"]
+[ext_resource type="PackedScene" uid="uid://xhgbb878qfpw" path="res://assets/3d/level_1.tscn" id="2_yqc26"]
+
+[node name="level_1" instance=ExtResource("1_8d2ow")]
+
+[node name="player" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591311, 12.0323, -0.0418391)
+
+[node name="CollisionShape3D" parent="arena/board/Plane/StaticBody3D" index="0"]
+disabled = true
+
+[node name="finish_point" parent="arena" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2338, 15.9758, -21.3862)
+target_loading = "res://src/level/level_2.tscn"
+
+[node name="level_1" parent="arena" index="4" instance=ExtResource("2_yqc26")]
+
+[node name="ui_game" parent="ui" index="0"]
+level_index = 1
+
+[editable path="player"]

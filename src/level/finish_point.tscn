@@ -8,36 +8,6 @@
 height = 1.0
 radius = 0.497786
 
-[sub_resource type="Animation" id="Animation_y4acb"]
-resource_name = "finish"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("finish_flag/Plane:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.205732, 0.167734, 0), Vector3(0.205732, 1.09183, 0)]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 2.2458,
-"start_offset": 0.0,
-"stream": ExtResource("3_63ydk")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
-
 [sub_resource type="Animation" id="Animation_ruf8o"]
 length = 0.001
 tracks/0/type = "value"
@@ -51,6 +21,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.205732, 0.167734, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y4acb"]
+resource_name = "finish"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("finish_flag/Plane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.205732, 0.167734, 0), Vector3(0.205732, 1.09183, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_next_scene"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xr4vb"]
@@ -69,6 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545476, 0)
 shape = SubResource("CylinderShape3D_i8b8j")
 
 [node name="finish_flag" parent="." instance=ExtResource("2_0qje4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Plane" parent="finish_flag" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.205732, 0.167734, 0)
@@ -79,7 +80,10 @@ libraries = {
 "": SubResource("AnimationLibrary_xr4vb")
 }
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_63ydk")
+volume_db = 5.427
+pitch_scale = 2.24
 bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,8 +7,7 @@ var level     : int      = 0
 var data
 
 var current_score : float = 0.0
-var current_level : int   = 0
-
+var current_level : int
 #game var______________________
 var lvl_0_highscore : float = -1.0
 var lvl_1_highscore : float = -1.0
@@ -94,7 +93,14 @@ func update_highscore(score: float, level_index: int):
 	save()
 	load_save()
 	
-
+func update_level(local_level: int):
+	if level < local_level:
+		level = local_level
+		print("up level")
+		
+	else:
+		print("already done d lebvel")
+	save()
 #TreeMancer
 func restart_level():
 	get_tree().call_group("instanced", "queue_free")
@@ -140,7 +146,7 @@ func save() -> void:
 	print("save:\n %s" %data)
 
 func load_save() -> void:
-	
+
 	var save_game = FileAccess.open("user://savegame.json", FileAccess.READ)
 	if FileAccess.file_exists("user://savegame.json"):
 		data = JSON.parse_string(save_game.get_as_text())
@@ -153,8 +159,8 @@ func load_save() -> void:
 		lvl_4_highscore  = data.lvl_4_highscore
 		print("file is loaded %s" %data)
 		print(lvl_0_highscore, lvl_1_highscore, lvl_2_highscore, lvl_3_highscore, lvl_4_highscore, level)
-	if !FileAccess.file_exists("user://savegame.json"):
-		print("no save :(")
+#	if !FileAccess.file_exists("user://savegame.json"):
+#		print("no save :(")
 	else:
 		print("somting wong %s" %data)
 		
@@ -166,4 +172,6 @@ func reset() -> void:
 	lvl_3_highscore  = -1.0
 	lvl_4_highscore  = -1.0
 	save()
+	load_save()
+	restart_level()
 	print("reset")

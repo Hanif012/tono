@@ -6,6 +6,7 @@ signal ballin
 
 func _on_body_entered(body):
 	$AnimationPlayer.play("finish")
+	$AudioStreamPlayer3D.play()
 	emit_signal("ballin")
 	
 func load_next_scene():

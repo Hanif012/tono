@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl5tlrguxb8mt"]
+[gd_scene load_steps=8 format=3 uid="uid://dl5tlrguxb8mt"]
 
 [ext_resource type="Material" uid="uid://d12en5v5it1li" path="res://assets/resource/blur.tres" id="1_3y1ju"]
 [ext_resource type="Script" path="res://src/ui/ui_game.gd" id="1_rwf1h"]
 [ext_resource type="Script" path="res://src/ui/pause.gd" id="2_7135d"]
+[ext_resource type="Theme" uid="uid://c5m4o3bkwi233" path="res://assets/theme/final_theme.tres" id="2_e4yy6"]
 
 [sub_resource type="Animation" id="Animation_kedrq"]
 length = 0.001
@@ -96,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_e4yy6")
 script = ExtResource("1_rwf1h")
 
 [node name="timer" type="Control" parent="."]
@@ -124,43 +126,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_7135d")
 
-[node name="Resume" type="Button" parent="pause"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.0
-offset_right = -1082.0
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="pause"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 260.0
+offset_right = 255.0
+offset_bottom = 514.0
+
+[node name="Resume" type="Button" parent="pause/VBoxContainer"]
+layout_mode = 2
 text = "Resume"
 
-[node name="Restart" type="Button" parent="pause"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 42.0
-offset_right = -1082.0
-offset_bottom = 99.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Restart" type="Button" parent="pause/VBoxContainer"]
+layout_mode = 2
 text = "Restart"
 
-[node name="Menu" type="Button" parent="pause"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 99.0
-offset_right = -1082.0
-offset_bottom = 156.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Menu" type="Button" parent="pause/VBoxContainer"]
+layout_mode = 2
 text = "Menu
 "
 
@@ -170,12 +152,12 @@ libraries = {
 "": SubResource("AnimationLibrary_edie8")
 }
 
-[connection signal="focus_entered" from="pause/Resume" to="pause" method="_on_resume_focus_entered"]
-[connection signal="mouse_entered" from="pause/Resume" to="pause" method="_on_resume_mouse_entered"]
-[connection signal="pressed" from="pause/Resume" to="pause" method="_on_resume_pressed"]
-[connection signal="focus_entered" from="pause/Restart" to="pause" method="_on_restart_focus_entered"]
-[connection signal="mouse_entered" from="pause/Restart" to="pause" method="_on_restart_mouse_entered"]
-[connection signal="pressed" from="pause/Restart" to="pause" method="_on_restart_pressed"]
-[connection signal="focus_entered" from="pause/Menu" to="pause" method="_on_menu_focus_entered"]
-[connection signal="mouse_entered" from="pause/Menu" to="pause" method="_on_menu_mouse_entered"]
-[connection signal="pressed" from="pause/Menu" to="pause" method="_on_menu_pressed"]
+[connection signal="focus_entered" from="pause/VBoxContainer/Resume" to="pause" method="_on_resume_focus_entered"]
+[connection signal="mouse_entered" from="pause/VBoxContainer/Resume" to="pause" method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="pause/VBoxContainer/Resume" to="pause" method="_on_resume_pressed"]
+[connection signal="focus_entered" from="pause/VBoxContainer/Restart" to="pause" method="_on_restart_focus_entered"]
+[connection signal="mouse_entered" from="pause/VBoxContainer/Restart" to="pause" method="_on_restart_mouse_entered"]
+[connection signal="pressed" from="pause/VBoxContainer/Restart" to="pause" method="_on_restart_pressed"]
+[connection signal="focus_entered" from="pause/VBoxContainer/Menu" to="pause" method="_on_menu_focus_entered"]
+[connection signal="mouse_entered" from="pause/VBoxContainer/Menu" to="pause" method="_on_menu_mouse_entered"]
+[connection signal="pressed" from="pause/VBoxContainer/Menu" to="pause" method="_on_menu_pressed"]

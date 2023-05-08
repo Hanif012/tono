@@ -7,6 +7,8 @@ signal tutorial_start
 @onready var level    = $level
 @onready var quit     = $quit
 
+@onready var button_level = [%level_0, %level_1, %level_2, %level_3, %level_4]
+
 func _ready():
 	_menu(main, true)
 	_menu(credits, false)
@@ -24,6 +26,14 @@ func _ready():
 	%lvl3_hg.text = "" if Global.lvl_3_highscore == -1 else (str(Global.lvl_3_highscore).pad_decimals(1) + "s") 
 	%lvl4_hg.text = "" if Global.lvl_4_highscore == -1 else (str(Global.lvl_4_highscore).pad_decimals(1) + "s") 
 	
+	for i in range(button_level.size()):
+		if i <= Global.level:
+			(button_level[i]).disabled = false
+			print(button_level[i])
+		else:
+			print(button_level[i])
+			(button_level[i]).disabled = true
+
 func _on_back_pressed():
 	click_sfx()
 	_menu(main, true)
@@ -77,14 +87,14 @@ func _on_level_0_pressed():
 	_menu(settings, false)
 	_menu(level, false)
 	_menu(quit, false)
-	emit_signal("tutorial_start")
+	Global.loading("res://src/level/level_0.tscn")
 	
 func _on_level_1_pressed():
 	click_sfx()
 	if Global.level > 0:
 		print("enter lvl 1")
 		Global.loading("res://src/level/level_1.tscn")
-		
+		Global.pause = false
 func _on_level_2_pressed():
 	click_sfx()
 	if Global.level > 1:
@@ -137,3 +147,8 @@ func _on_settings_button_mouse_entered():
 func _on_play_button_mouse_entered():
 	Global.audio_hover_ui()
 
+
+
+func _on_back_delete_confirm_pressed():
+	$settings/TextureRect/TextureRect.visible = false
+	Global.audio_click_ui()

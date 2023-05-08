@@ -1,0 +1,18 @@
+[gd_resource type="StyleBoxTexture" load_steps=4 format=3 uid="uid://eh626dxvpmb6"]
+
+[ext_resource type="Texture2D" uid="uid://frya4weybpxs" path="res://assets/theme/ui_test/ui_outline/disabled/frame0001.png" id="1_mbbgq"]
+[ext_resource type="Texture2D" uid="uid://6qlis34pwj2e" path="res://assets/theme/ui_test/ui_outline/disabled/frame0003.png" id="2_74vea"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tdu7q"]
+frames = 2
+frame_0/texture = ExtResource("1_mbbgq")
+frame_1/texture = ExtResource("2_74vea")
+frame_1/duration = 1.0
+
+[resource]
+texture = SubResource("AnimatedTexture_tdu7q")
+texture_margin_left = 12.2369
+texture_margin_top = 9.50482
+texture_margin_right = 12.5096
+texture_margin_bottom = 9.06223
+region_rect = Rect2(24.8074, 156.981, 447.193, 148.214)

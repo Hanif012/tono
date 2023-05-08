@@ -6,9 +6,9 @@ signal game_start
 @onready var counter = %counter
 var show_level = {
 	0: "tutorial",
-	1: "Hutan",
-	2: "Peradaban",
-	3: "Metropolitan",
+	1: "Spiral",
+	2: "Kipas",
+	3: "Balok",
 	4: "Nekropolis"
 }
 

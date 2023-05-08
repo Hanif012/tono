@@ -8,9 +8,10 @@ var timer = 0.0
 var current_timer = 0.0
 
 func _ready():
-	Global.current_level  = level_index
+	Global.update_level(level_index)
 	ui_pause.visible      = false
 	set_process(false)
+	anim_player.stop()
 
 func _process(delta):
 	timer += delta

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://carjmqj75kp4w"]
+
+[ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_cpjnn"]
+[ext_resource type="PackedScene" uid="uid://3485hrxl4yxt" path="res://assets/3d/level_2.tscn" id="2_sfq3p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uob7m"]
+size = Vector3(1.98024, 9.82802, 1.97921)
+
+[node name="level_2" instance=ExtResource("1_cpjnn")]
+
+[node name="player" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145642, 27.1653, 0.251905)
+
+[node name="CollisionShape3D" parent="arena/board/Plane/StaticBody3D" index="0"]
+disabled = true
+
+[node name="finish_point" parent="arena" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, 8.11833, 5.87368)
+target_loading = "res://src/level/level_3.tscn"
+
+[node name="level_1" parent="arena" index="4" instance=ExtResource("2_sfq3p")]
+
+[node name="fan" type="Area3D" parent="arena/level_1/Cube001" index="1"]
+gravity_space_override = 1
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena/level_1/Cube001/fan" index="0"]
+shape = SubResource("BoxShape3D_uob7m")
+
+[node name="fan2" type="Area3D" parent="arena/level_1/Cube002" index="1"]
+gravity_space_override = 1
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena/level_1/Cube002/fan2" index="0"]
+shape = SubResource("BoxShape3D_uob7m")
+
+[node name="fan3" type="Area3D" parent="arena/level_1/Cube003" index="1"]
+gravity_space_override = 1
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena/level_1/Cube003/fan3" index="0"]
+shape = SubResource("BoxShape3D_uob7m")
+
+[node name="ui_game" parent="ui" index="0"]
+level_index = 2
+
+[editable path="player"]
+[editable path="arena/level_1"]

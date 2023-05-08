@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://io7i7061scrj"]
+[gd_scene load_steps=14 format=3 uid="uid://io7i7061scrj"]
 
 [ext_resource type="PackedScene" uid="uid://c8je8ycpy0i1y" path="res://src/level/player.tscn" id="1_k36to"]
 [ext_resource type="PackedScene" uid="uid://da705ledpr0e2" path="res://src/level/fall_area.tscn" id="2_a7gpj"]
-[ext_resource type="PackedScene" uid="uid://c4n37ly0r2jnt" path="res://assets/3d/board.tscn" id="3_jigtp"]
+[ext_resource type="Texture2D" uid="uid://dun77o5h7m38k" path="res://assets/blender/level_1/board_IMG-20230425-WA0009.png" id="3_q1bnf"]
 [ext_resource type="PackedScene" uid="uid://cqwne7ni1k128" path="res://src/level/finish_point.tscn" id="4_qm2m3"]
-[ext_resource type="PackedScene" uid="uid://dfrn7ivy8mvdj" path="res://src/ui/ui_dialog.tscn" id="5_7aqil"]
 [ext_resource type="PackedScene" uid="uid://dl5tlrguxb8mt" path="res://src/ui/ui_game.tscn" id="6_vnoy7"]
 [ext_resource type="PackedScene" uid="uid://cg0r1plccn5kp" path="res://src/ui/ui_game_start.tscn" id="7_j7yti"]
 
@@ -18,6 +17,46 @@ ambient_light_sky_contribution = 0.2
 reflected_light_source = 2
 tonemap_white = 0.0
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uinw8"]
+resource_name = "Material.003"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_q1bnf")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0tgr1"]
+_surfaces = [{
+"aabb": AABB(-10, -0.369641, -10, 20, 0.369651, 20),
+"format": 4097,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 0, 0, 1, 0, 3, 0, 5, 0, 7, 0, 6, 0, 5, 0, 4, 0, 7, 0, 2, 0, 5, 0, 0, 0, 2, 0, 4, 0, 5, 0, 3, 0, 4, 0, 2, 0, 3, 0, 7, 0, 4, 0, 0, 0, 6, 0, 1, 0, 0, 0, 5, 0, 6, 0, 1, 0, 7, 0, 3, 0, 1, 0, 6, 0, 7, 0),
+"name": "Material.003",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 65, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 65, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 193, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 193, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 193, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 65, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 65, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 193)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u2xqj"]
+resource_name = "board_Plane"
+_surfaces = [{
+"aabb": AABB(-10, -0.369641, -10, 20, 0.369651, 20),
+"attribute_data": PackedByteArray(160, 178, 195, 61, 102, 214, 96, 63, 23, 56, 206, 62, 80, 22, 48, 62, 143, 136, 53, 63, 119, 153, 55, 63, 96, 11, 182, 60, 0, 0, 231, 61, 78, 82, 14, 63, 119, 153, 55, 63, 143, 136, 53, 63, 80, 22, 48, 62, 23, 56, 206, 62, 119, 153, 55, 63, 208, 190, 92, 63, 80, 22, 48, 62, 191, 88, 114, 63, 122, 132, 88, 63, 78, 82, 14, 63, 80, 22, 48, 62, 208, 190, 92, 63, 119, 153, 55, 63, 239, 238, 110, 63, 240, 81, 223, 61, 54, 151, 127, 62, 119, 153, 55, 63, 143, 136, 53, 63, 80, 22, 48, 62, 100, 168, 108, 63, 232, 250, 231, 61, 96, 11, 182, 60, 232, 250, 231, 61, 46, 151, 127, 62, 80, 22, 48, 62, 78, 82, 14, 63, 119, 153, 55, 63, 183, 63, 200, 61, 133, 235, 97, 63, 23, 56, 206, 62, 119, 153, 55, 63, 78, 82, 14, 63, 80, 22, 48, 62, 23, 56, 206, 62, 80, 22, 48, 62, 143, 136, 53, 63, 119, 153, 55, 63, 28, 199, 113, 63, 215, 163, 88, 63),
+"format": 4119,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 11, 0, 8, 0, 0, 0, 3, 0, 11, 0, 15, 0, 23, 0, 18, 0, 15, 0, 14, 0, 23, 0, 6, 0, 16, 0, 1, 0, 6, 0, 12, 0, 16, 0, 10, 0, 13, 0, 7, 0, 10, 0, 22, 0, 13, 0, 2, 0, 20, 0, 5, 0, 2, 0, 17, 0, 20, 0, 4, 0, 21, 0, 9, 0, 4, 0, 19, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_uinw8"),
+"name": "Material.003",
+"primitive": 3,
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 65, 255, 127, 0, 0, 0, 0, 119, 254, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 65, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 65, 255, 255, 255, 255, 255, 127, 255, 255, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 65, 255, 127, 0, 0, 0, 0, 175, 255, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 65, 0, 0, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 65, 255, 255, 255, 255, 255, 127, 255, 255, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 193, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 193, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 0, 0, 0, 0, 0, 0, 32, 193, 255, 127, 0, 0, 0, 0, 74, 253, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 193, 0, 0, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 193, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 0, 0, 0, 0, 0, 0, 32, 193, 255, 127, 0, 0, 0, 0, 119, 254, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 193, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 193, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 193, 255, 127, 255, 255, 255, 255, 255, 255, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 65, 255, 127, 255, 255, 255, 255, 134, 254, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 65, 255, 255, 255, 127, 255, 127, 255, 255, 0, 0, 32, 193, 158, 65, 189, 190, 0, 0, 32, 65, 255, 255, 255, 255, 255, 127, 255, 255, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 65, 255, 127, 255, 255, 255, 255, 29, 253, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 65, 0, 0, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 65, 255, 255, 255, 255, 255, 127, 255, 255, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 193, 0, 0, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 193, 255, 127, 255, 127, 255, 127, 255, 255, 0, 0, 32, 65, 158, 65, 189, 190, 0, 0, 32, 193, 255, 127, 255, 255, 255, 255, 134, 254)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0tgr1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fa22o"]
+size = Vector3(20, 0.001, 20)
 
 [sub_resource type="Animation" id="Animation_in82s"]
 resource_name = "platform"
@@ -41,7 +80,6 @@ directional_shadow_split_1 = 0.01
 sky_mode = 1
 
 [node name="player" parent="." instance=ExtResource("1_k36to")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5107, 4.8042, -2.54744)
 
 [node name="arena" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
@@ -50,8 +88,18 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -10.2582, 0)
 linear_damp = 0.0
 
-[node name="board" parent="arena" instance=ExtResource("3_jigtp")]
+[node name="board" type="Node3D" parent="arena"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.78783, -8.03717, -0.321887)
+visible = false
+
+[node name="Plane" type="MeshInstance3D" parent="arena/board"]
+mesh = SubResource("ArrayMesh_u2xqj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="arena/board/Plane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena/board/Plane/StaticBody3D"]
+shape = SubResource("BoxShape3D_fa22o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="arena"]
 libraries = {
@@ -63,9 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, -7.94589, 5.87368)
 target_loading = "res://src/level/level_1.tscn"
 
 [node name="ui" type="CanvasLayer" parent="."]
-
-[node name="ui_dialog" parent="ui" instance=ExtResource("5_7aqil")]
-selected_index = 0
 
 [node name="ui_game" parent="ui" instance=ExtResource("6_vnoy7")]
 
