@@ -74,6 +74,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="Plane" parent="finish_flag" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.205732, 0.167734, 0)
 
+[node name="CollisionShape3D" parent="finish_flag/Plane/StaticBody3D" index="0"]
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
 libraries = {

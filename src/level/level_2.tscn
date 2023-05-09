@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://carjmqj75kp4w"]
+[gd_scene load_steps=9 format=3 uid="uid://carjmqj75kp4w"]
 
 [ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_cpjnn"]
 [ext_resource type="PackedScene" uid="uid://3485hrxl4yxt" path="res://assets/3d/level_2.tscn" id="2_sfq3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uob7m"]
 size = Vector3(1.98024, 9.82802, 1.97921)
+
+[sub_resource type="Curve" id="Curve_3eqy6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.938326, 0.527273), -2.1302, -2.1302, 0, 0, Vector2(1, 0.0363636), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5dr1q"]
+curve = SubResource("Curve_3eqy6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e7ctg"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 10, 0)
+scale_curve = SubResource("CurveTexture_5dr1q")
+turbulence_noise_speed = Vector3(0.5, 100, 0.5)
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+sub_emitter_keep_velocity = true
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44ypm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tnf07"]
+material = SubResource("StandardMaterial3D_44ypm")
 
 [node name="level_2" instance=ExtResource("1_cpjnn")]
 
@@ -47,8 +73,43 @@ gravity = 20.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="arena/level_1/Cube003/fan3" index="0"]
 shape = SubResource("BoxShape3D_uob7m")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="arena" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46855, 5.90949, 5.3553)
+transparency = 0.76
+amount = 20
+lifetime = 1.2
+preprocess = 10.0
+randomness = 0.73
+visibility_aabb = AABB(-11.0715, -12.8581, -10.6672, 22.1431, 24.7446, 21.2446)
+process_material = SubResource("ParticleProcessMaterial_e7ctg")
+draw_pass_1 = SubResource("SphereMesh_tnf07")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="arena" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.40931, 5.90949, 5.26247)
+transparency = 0.76
+amount = 20
+lifetime = 1.2
+preprocess = 10.0
+randomness = 0.73
+visibility_aabb = AABB(-11.0715, -12.8581, -10.6672, 22.1431, 24.7446, 21.2446)
+process_material = SubResource("ParticleProcessMaterial_e7ctg")
+draw_pass_1 = SubResource("SphereMesh_tnf07")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="arena" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57201, 5.90949, 5.34959)
+transparency = 0.76
+amount = 20
+lifetime = 1.2
+preprocess = 10.0
+randomness = 0.73
+visibility_aabb = AABB(-11.0715, -12.8581, -10.6672, 22.1431, 24.7446, 21.2446)
+process_material = SubResource("ParticleProcessMaterial_e7ctg")
+draw_pass_1 = SubResource("SphereMesh_tnf07")
+
 [node name="ui_game" parent="ui" index="0"]
 level_index = 2
+
+[connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start" flags=18]
 
 [editable path="player"]
 [editable path="arena/level_1"]

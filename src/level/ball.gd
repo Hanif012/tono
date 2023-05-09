@@ -12,7 +12,7 @@ func _physics_process(delta):
 #	)
 	var old_camera_pos = $Marker3D.global_transform.origin
 	var ball_pos = global_transform.origin
-	var new_camera_pos = lerp(old_camera_pos, ball_pos, 0.1)
+	var new_camera_pos = lerp(old_camera_pos, ball_pos, 0.05)
 	$Marker3D.global_transform.origin = new_camera_pos
 
 	if Input.is_action_pressed("ui_up"):

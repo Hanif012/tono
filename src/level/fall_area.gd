@@ -8,6 +8,7 @@ func _on_body_entered(body):
 		print("restart_level")
 		await get_tree().create_timer(2).timeout 
 		Global.restart_level()
+		Global.secret = true
 
 func _on_finish_point_ballin():
 	touchdown = true

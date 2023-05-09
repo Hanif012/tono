@@ -6,6 +6,8 @@ var next_scene: String
 var level     : int      = 0
 var data
 
+var secret = false
+
 var current_score : float = 0.0
 var current_level : int
 #game var______________________

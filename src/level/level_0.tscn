@@ -1,6 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6i2y4x2l2hrl"]
+[gd_scene load_steps=8 format=3 uid="uid://b6i2y4x2l2hrl"]
 
 [ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_rdmh2"]
+[ext_resource type="FontFile" uid="uid://c23nicedn23uu" path="res://assets/fonts/Swallow Kick.otf" id="2_a8jap"]
+[ext_resource type="Theme" uid="uid://c5m4o3bkwi233" path="res://assets/theme/final_theme.tres" id="3_5an4f"]
+[ext_resource type="Script" path="res://src/level/rahasia.gd" id="3_6hqpd"]
+
+[sub_resource type="Animation" id="Animation_o7kci"]
+resource_name = "start"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["<- Waktu di samping terus berjalan!", "Cari bendera secepat mungkin untuk menyelesaikan dan membuka level, Tono!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_bi6eg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["<- Waktu di samping terus berjalan!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0b1yt"]
+_data = {
+"RESET": SubResource("Animation_bi6eg"),
+"start": SubResource("Animation_o7kci")
+}
 
 [node name="level_0" instance=ExtResource("1_rdmh2")]
 
@@ -8,6 +73,55 @@
 visible = true
 
 [node name="finish_point" parent="arena" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0024, -7.94589, 0.308074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11271, -7.94589, -12.5014)
+
+[node name="Label3D" type="Label3D" parent="arena" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3694, -5.33811, 8.2393)
+billboard = 1
+text = "Gunakan Panah untuk bergerak!"
+font = ExtResource("2_a8jap")
+font_size = 50
+
+[node name="Label3D3" type="Label3D" parent="arena" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0986, -5.33811, -14.1682)
+billboard = 1
+text = "Ada rahasia di bawah!"
+font = ExtResource("2_a8jap")
+font_size = 50
+script = ExtResource("3_6hqpd")
+
+[node name="Label3D4" type="Label3D" parent="arena" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38, -5.33811, -9.49463)
+billboard = 1
+text = "Sentuh bendera untuk menyelesaikan Tutorial 
+dan 
+menghadapi ujian hidup!"
+font = ExtResource("2_a8jap")
+font_size = 50
+script = ExtResource("3_6hqpd")
+
+[node name="Label3D2" type="Label3D" parent="arena" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9474, -5.18144, 4.08339)
+billboard = 1
+text = "Esc untuk Berhenti sementara!"
+font = ExtResource("2_a8jap")
+font_size = 50
+
+[node name="Label" type="Label" parent="ui" index="2"]
+offset_left = 193.0
+offset_top = 57.0
+offset_right = 887.0
+offset_bottom = 80.0
+pivot_offset = Vector2(319.167, 8.33333)
+theme = ExtResource("3_5an4f")
+text = "<- Waktu di samping terus berjalan!"
+
+[node name="anim" type="AnimationPlayer" parent="ui" index="3"]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_0b1yt")
+}
+
+[connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start" flags=18]
 
 [editable path="player"]

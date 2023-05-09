@@ -9,6 +9,7 @@ var current_timer = 0.0
 
 func _ready():
 	Global.update_level(level_index)
+	Global.current_level = level_index
 	ui_pause.visible      = false
 	set_process(false)
 	anim_player.stop()

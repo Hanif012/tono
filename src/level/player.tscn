@@ -38,3 +38,6 @@ top_level = true
 [node name="Camera3D" type="Camera3D" parent="ball/Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 0.873483, 0.486854, 0, -0.486854, 0.873483, 0, 3.63099, 5.3597)
 current = true
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]
+radius = 0.5
