@@ -6,10 +6,11 @@ signal game_start
 @onready var counter = %counter
 var show_level = {
 	0: "tutorial",
-	1: "Spiral",
-	2: "Kipas",
+	1: "Labirin",
+	2: "Spiral",
 	3: "Balok",
-	4: "Nekropolis"
+	4: "Kipas",
+	5: "Tamat!"
 }
 
 func _ready():

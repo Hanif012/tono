@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3scp66uo2080"
-path.bptc="res://.godot/imported/bridge_IMG-20230425-WA0008.png-c976e1a6733b3dc1e7479795e7729def.bptc.ctex"
+uid="uid://t3xf122eqhuf"
+path.bptc="res://.godot/imported/icon.png-e6dec45993687d659b4e8492bdf5a24d.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://assets/blender/level_2/bridge_IMG-20230425-WA0008.png"
-dest_files=["res://.godot/imported/bridge_IMG-20230425-WA0008.png-c976e1a6733b3dc1e7479795e7729def.bptc.ctex"]
+source_file="res://assets/krita/icon.png"
+dest_files=["res://.godot/imported/icon.png-e6dec45993687d659b4e8492bdf5a24d.bptc.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8je8ycpy0i1y"]
 
 [ext_resource type="Script" path="res://src/level/ball.gd" id="1_nvan3"]
-[ext_resource type="Texture2D" uid="uid://g48ahbrir5jm" path="res://assets/bruh.svg" id="2_4l7o0"]
+[ext_resource type="Texture2D" uid="uid://fmjaojbrp7ol" path="res://assets/krita/texture.png" id="2_5yt7m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vtr8t"]
 rough = true
@@ -12,8 +12,8 @@ absorbent = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_tjsw3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7ao6"]
-albedo_texture = ExtResource("2_4l7o0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hh2i"]
+albedo_texture = ExtResource("2_5yt7m")
 
 [node name="player" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5107, 4.8042, -2.54744)
@@ -30,7 +30,7 @@ shape = SubResource("SphereShape3D_3acl6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ball"]
 mesh = SubResource("SphereMesh_tjsw3")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_g7ao6")
+surface_material_override/0 = SubResource("StandardMaterial3D_2hh2i")
 
 [node name="Marker3D" type="Marker3D" parent="ball"]
 top_level = true

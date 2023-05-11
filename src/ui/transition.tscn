@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crtaq61hjwbhg"]
+[gd_scene load_steps=7 format=3 uid="uid://crtaq61hjwbhg"]
 
 [ext_resource type="Script" path="res://src/ui/transition.gd" id="1_358uw"]
 [ext_resource type="Theme" uid="uid://c5m4o3bkwi233" path="res://assets/theme/final_theme.tres" id="2_q54jv"]
+[ext_resource type="Texture2D" uid="uid://bus48vcet17er" path="res://assets/krita/loading.png" id="3_gm6xy"]
 
 [sub_resource type="Animation" id="Animation_b4el3"]
 length = 0.001
@@ -124,6 +125,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_q54jv")
 color = Color(0.188235, 0.356863, 0.380392, 1)
+
+[node name="Loading" type="Sprite2D" parent="."]
+position = Vector2(641.5, 366)
+scale = Vector2(1.00859, 1.01111)
+texture = ExtResource("3_gm6xy")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true

@@ -22,9 +22,17 @@ var tips = [
 "Tekan Esc untuk Berhenti dan menikmati rumput hijau", 
 "Semua suara yang dipakai di gim adalah suara pembuatnya sendiri!", 
 "Jangan ragu untuk terjun keluar peta", "3D asset di Tono merupakan barang kamar sang pembuat gim ini!",
-"Terinspirasi dari masalah iklim!",
-"Membuang sampah di tempatnya",
-"100% GRATIS"
+"Terinspirasi dari Hamster Ball!",
+"Buanglah sampah di tempatnya",
+"100% GRATIS",
+"Setiap permainan memiliki aturannya sendiri",
+"Jangan takut untuk mencoba hal baru",
+"Setiap kekalahan adalah kesempatan untuk belajar",
+"Jangan lupa beristirahat dan menjaga kesehatan saat bermain",
+"Kreativitas adalah kunci untuk menciptakan permainan yang menarik",
+"Ketekunan dan dedikasi adalah kunci untuk mencapai kesuksesan dalam pengembangan diri",
+"Kesederhanaan adalah keindahan dalam permainan",
+"Jangan lupa menikmati permainan dan bersenang-senang!"
 ]
 
 ##DIALOG

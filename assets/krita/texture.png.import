@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ffxwjogoujlx"
-path.bptc="res://.godot/imported/level_2_IMG-20230425-WA0007.png-cae688213e98485374fae4ef8cf0f5a6.bptc.ctex"
+uid="uid://fmjaojbrp7ol"
+path.bptc="res://.godot/imported/texture.png-fc4f4fa921907faea8b55efdcaf0cabb.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://assets/blender/level_2/level_2_IMG-20230425-WA0007.png"
-dest_files=["res://.godot/imported/level_2_IMG-20230425-WA0007.png-cae688213e98485374fae4ef8cf0f5a6.bptc.ctex"]
+source_file="res://assets/krita/texture.png"
+dest_files=["res://.godot/imported/texture.png-fc4f4fa921907faea8b55efdcaf0cabb.bptc.ctex"]
 
 [params]
 

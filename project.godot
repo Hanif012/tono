@@ -15,7 +15,8 @@ run/main_scene="res://src/splash/splash.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Tono"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/krita/icon.png"
+config/windows_native_icon="res://favicon (3).ico"
 
 [autoload]
 
@@ -126,5 +127,6 @@ locale/fallback="id_ID"
 
 [physics]
 
+3d/run_on_separate_thread=true
 3d/solver/contact_max_separation=0.03
 3d/solver/contact_max_allowed_penetration=0.0

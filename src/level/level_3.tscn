@@ -186,6 +186,7 @@ collision_mask = 0
 
 [node name="finish_point" parent="arena" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5375, 2.46275, -136.227)
+target_loading = "res://src/level/level_4.tscn"
 
 [node name="level_3" parent="arena" index="6" instance=ExtResource("2_1f7cm")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -201,9 +202,6 @@ transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -2, 7, -72)
 
 [node name="Cube004" parent="arena/level_3" index="4"]
 transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -5.96946, 7, -72)
-
-[node name="CollisionShape3D" parent="arena/level_3/Cube004/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cube005" parent="arena/level_3" index="5"]
 transform = Transform3D(2.00611, 0, 0, 0, 2.00611, 0, 0, 0, 2.00611, -5.96946, 7, -86.0764)

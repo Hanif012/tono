@@ -1,23 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj6pyo8who6v1"]
+[gd_scene load_steps=3 format=3 uid="uid://bw3tvqtxwtplx"]
 
 [ext_resource type="PackedScene" uid="uid://io7i7061scrj" path="res://src/level/level_template.tscn" id="1_8d2ow"]
-[ext_resource type="PackedScene" uid="uid://xhgbb878qfpw" path="res://assets/3d/level_1.tscn" id="2_yqc26"]
+[ext_resource type="PackedScene" uid="uid://13u0xlrv48xp" path="res://assets/3d/maze.tscn" id="2_qt07a"]
 
 [node name="level_1" instance=ExtResource("1_8d2ow")]
 
 [node name="player" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591311, 12.0323, -0.0418391)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0899825, 26.64, 0.0674884)
+
+[node name="arena" parent="." index="3"]
+transform = Transform3D(-0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, -0.642788, 0, 10, 0)
 
 [node name="CollisionShape3D" parent="arena/board/Plane/StaticBody3D" index="0"]
 disabled = true
 
 [node name="finish_point" parent="arena" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2338, 15.9758, -21.3862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1464, 15.5884, 5.87368)
 target_loading = "res://src/level/level_2.tscn"
 
-[node name="level_1" parent="arena" index="4" instance=ExtResource("2_yqc26")]
+[node name="maze" parent="arena" index="4" instance=ExtResource("2_qt07a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.6801, 0)
 
 [node name="ui_game" parent="ui" index="0"]
 level_index = 1
+
+[connection signal="game_start" from="ui/ui_game_start" to="player/ball" method="_on_ui_game_start_game_start" flags=18]
 
 [editable path="player"]

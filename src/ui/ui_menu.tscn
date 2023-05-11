@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1lf43gfl0t35"]
+[gd_scene load_steps=9 format=3 uid="uid://b1lf43gfl0t35"]
 
 [ext_resource type="Theme" uid="uid://c5m4o3bkwi233" path="res://assets/theme/final_theme.tres" id="1_gv4cc"]
 [ext_resource type="Theme" uid="uid://b5nt337l2sqxi" path="res://assets/theme/default_theme.tres" id="1_ubidy"]
 [ext_resource type="Script" path="res://src/ui/ui_menu.gd" id="1_w3rdv"]
+[ext_resource type="Texture2D" uid="uid://dapnkpibney2c" path="res://assets/krita/screen.png" id="3_bwlnj"]
 [ext_resource type="PackedScene" uid="uid://b60pmm7dsjb80" path="res://src/ui/audio_settings.tscn" id="3_hrlyw"]
 [ext_resource type="Texture2D" uid="uid://bxpe4p5skyl66" path="res://assets/theme/ui_test/panel/frame0000.png" id="3_q1jbo"]
 [ext_resource type="Texture2D" uid="uid://bsfp8ylk2d7q1" path="res://assets/theme/ui_test/panel/frame0007.png" id="6_sdddp"]
@@ -20,6 +21,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gv4cc")
 script = ExtResource("1_w3rdv")
+
+[node name="Screen" type="Sprite2D" parent="."]
+position = Vector2(644.5, 372)
+scale = Vector2(1.02734, 1.05278)
+texture = ExtResource("3_bwlnj")
 
 [node name="main" type="Control" parent="."]
 custom_minimum_size = Vector2(600, 0)
@@ -199,9 +205,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -640.0
-offset_right = -370.0
-offset_bottom = -34.0
+offset_left = -619.0
+offset_top = 40.0
+offset_right = -349.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -213,7 +220,8 @@ anchor_bottom = 1.0
 offset_left = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Tono, Si Anak Bumi
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Tono
 ©2023  Koloid Studios
 Dibuat oleh Fathi Naufal Hanif
 Terima kasih untuk orang tua dengan kasih sayangnya dan teman-teman yang sudah membantu dan mendukung 
